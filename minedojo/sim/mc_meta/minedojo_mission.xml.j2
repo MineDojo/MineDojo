@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<MissionInit xmlns="http://ProjectMalmo.microsoft.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" SchemaVersion="" PlatformVersion="{{MALMO_VERSION}}">
+    <Mission xmlns="http://ProjectMalmo.microsoft.com">
+        <About>
+            <Summary>{{_sim_name}}</Summary>
+        </About>
+
+        <ModSettings>
+            <MsPerTick>50</MsPerTick>
+        </ModSettings>
+
+        <ServerSection>
+            <ServerInitialConditions>
+                <!-- Initial Conditions -->
+
+                {% for x in get_consolidated_xml((_server_initial_conditions_handlers)) %}
+                {{ x }}
+                {% endfor %}
+
+            </ServerInitialConditions>
+            <ServerHandlers>
+
+                {% for x in get_consolidated_xml((_world_generator_handlers)) %}
+                {{ x }}
+                {% endfor %}
+
+                {% for x in get_consolidated_xml((_server_decorator_handlers)) %}
+                {{ x }}
+                {% endfor %}
+
+                {% for x in get_consolidated_xml((_server_quit_handlers)) %}
+                {{ x }}
+                {% endfor %}
+
+
+            </ServerHandlers>
+        </ServerSection>
+
+
+        {% for agent_index in range(_agent_count) %}
+        <AgentSection mode="Survival">
+            <Name>MineDojoAgent{{ agent_index }}</Name>
+
+            <AgentStart>
+
+                {% for x in get_consolidated_xml((_agent_start_handlers_list[agent_index])) %}
+                {{ x }}
+                {% endfor %}
+
+            </AgentStart>
+            <AgentHandlers>
+                <!-- These area  bit of boilerplate that
+                 we always expect to be included ... -->
+                <FileBasedPerformanceProducer/>
+                <ObservationFromDamage/>
+                <PauseCommand/>
+
+                <!--  Observations     -->
+
+                {% for x in get_consolidated_xml((_obs_handlers)) %}
+                {{ x }}
+                {% endfor %}
+
+                <!--  Monitors     -->
+
+                <!--  Actions   -->
+                <ChatCommands/>
+
+                {% for x in get_consolidated_xml((_action_handlers)) %}
+                {{ x }}
+                {% endfor %}
+
+                <!--  Rewards   -->
+
+                <!-- Additional Agent Handlers like quitting -->
+                {% for x in get_consolidated_xml((_agent_handlers)) %}
+                {{ x }}
+                {% endfor %}
+
+                <!-- Env Monitors? -->
+            </AgentHandlers>
+        </AgentSection>
+        {% endfor %}
+    </Mission>
+    <ExperimentUID>
+        {{_episode_id}}
+    </ExperimentUID>
+    <ClientRole>
+        0
+    </ClientRole>
+    <ClientAgentConnection>
+        <ClientIPAddress>127.0.0.1</ClientIPAddress>
+        <ClientMissionControlPort>0</ClientMissionControlPort>
+        <ClientCommandsPort>0</ClientCommandsPort>
+        <AgentIPAddress>127.0.0.1</AgentIPAddress>
+        <AgentMissionControlPort>0</AgentMissionControlPort>
+        <AgentVideoPort>0</AgentVideoPort>
+        <AgentDepthPort>0</AgentDepthPort>
+        <AgentLuminancePort>0</AgentLuminancePort>
+        <AgentObservationsPort>0</AgentObservationsPort>
+        <AgentRewardsPort>0</AgentRewardsPort>
+        <AgentColourMapPort>0</AgentColourMapPort>
+    </ClientAgentConnection>
+</MissionInit>

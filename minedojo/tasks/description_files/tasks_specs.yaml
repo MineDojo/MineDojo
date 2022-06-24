@@ -1,0 +1,1250 @@
+# ====== combat tasks ======
+combat_{end_mob}_end_{armor_material}_armors_{weapon_material}_sword_shield:
+  __cls__: "combat"
+  prompt: "combat a {end_mob} in the end with a {weapon_material} sword, shield, and a full suite of {armor_material} armors"
+  target_names: "{end_mob}"
+  target_quantities: 1
+  reward_weights: 1
+  initial_mobs: "{end_mob}"
+  initial_mob_spawn_range_low: [-7, 1, -7]
+  initial_mob_spawn_range_high: [7, 1, 7]
+  initial_inventory:
+    mainhand:
+      name: "{weapon_material}_sword"
+    feet:
+      name: "{armor_material}_boots"
+    legs:
+      name: "{armor_material}_leggings"
+    chest:
+      name: "{armor_material}_chestplate"
+    head:
+      name: "{armor_material}_helmet"
+    offhand:
+      name: "shield"
+  specified_biome: "the_end"
+  allow_mob_spawn: false
+  use_voxel: true
+  voxel_size: {xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1}
+  use_lidar: false
+
+combat_{nether_mob}_nether_{armor_material}_armors_{weapon_material}_sword_shield:
+  __cls__: "combat"
+  prompt: "combat a {nether_mob} in nether with a {weapon_material} sword, shield, and a full suite of {armor_material} armors"
+  target_names: "{nether_mob}"
+  target_quantities: 1
+  reward_weights: 1
+  initial_mobs: "{nether_mob}"
+  initial_mob_spawn_range_low: [-7, 1, -7]
+  initial_mob_spawn_range_high: [7, 1, 7]
+  initial_inventory:
+    mainhand:
+      name: "{weapon_material}_sword"
+    feet:
+      name: "{armor_material}_boots"
+    legs:
+      name: "{armor_material}_leggings"
+    chest:
+      name: "{armor_material}_chestplate"
+    head:
+      name: "{armor_material}_helmet"
+    offhand:
+      name: "shield"
+  specified_biome: "nether"
+  allow_mob_spawn: false
+  use_voxel: true
+  voxel_size: {xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1}
+  use_lidar: false
+
+combat_slime_swamp_{armor_material}_armors_{weapon_material}_sword_shield:
+  __cls__: "combat"
+  prompt: "combat a slime in night swampland with a {weapon_material} sword, shield, and a full suite of {armor_material} armors"
+  target_names: "slime"
+  target_quantities: 1
+  reward_weights: 1
+  initial_mobs: "slime"
+  initial_mob_spawn_range_low: [-7, 1, -7]
+  initial_mob_spawn_range_high: [7, 1, 7]
+  start_at_night: true
+  always_night: true
+  initial_inventory:
+    mainhand:
+      name: "{weapon_material}_sword"
+    feet:
+      name: "{armor_material}_boots"
+    legs:
+      name: "{armor_material}_leggings"
+    chest:
+      name: "{armor_material}_chestplate"
+    head:
+      name: "{armor_material}_helmet"
+    offhand:
+      name: "shield"
+  specified_biome: "swampland"
+  allow_mob_spawn: false
+  use_voxel: true
+  voxel_size: {xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1}
+  use_lidar: false
+
+combat_husk_desert_{armor_material}_armors_{weapon_material}_sword_shield:
+  __cls__: "combat"
+  prompt: "combat a husk in night desert with a {weapon_material} sword, shield, and a full suite of {armor_material} armors"
+  target_names: "husk"
+  target_quantities: 1
+  reward_weights: 1
+  initial_mobs: "husk"
+  initial_mob_spawn_range_low: [-7, 1, -7]
+  initial_mob_spawn_range_high: [7, 1, 7]
+  start_at_night: true
+  always_night: true
+  initial_inventory:
+    mainhand:
+      name: "{weapon_material}_sword"
+    feet:
+      name: "{armor_material}_boots"
+    legs:
+      name: "{armor_material}_leggings"
+    chest:
+      name: "{armor_material}_chestplate"
+    head:
+      name: "{armor_material}_helmet"
+    offhand:
+      name: "shield"
+  specified_biome: "desert"
+  allow_mob_spawn: false
+  use_voxel: true
+  voxel_size: {xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1}
+  use_lidar: false
+
+combat_bat_{combat_biomes}_{armor_material}_armors_{weapon_material}_sword_shield:
+  __cls__: "combat"
+  prompt: "hunt a bat in night {combat_biomes} with a {weapon_material} sword, shield, and a full suite of {armor_material} armors"
+  target_names: "bat"
+  target_quantities: 1
+  reward_weights: 1
+  initial_mobs: "bat"
+  initial_mob_spawn_range_low: [-7, 1, -7]
+  initial_mob_spawn_range_high: [7, 1, 7]
+  start_at_night: true
+  always_night: true
+  initial_inventory:
+    mainhand:
+      name: "{weapon_material}_sword"
+    feet:
+      name: "{armor_material}_boots"
+    legs:
+      name: "{armor_material}_leggings"
+    chest:
+      name: "{armor_material}_chestplate"
+    head:
+      name: "{armor_material}_helmet"
+    offhand:
+      name: "shield"
+  specified_biome: "{combat_biomes}"
+  allow_mob_spawn: false
+  use_voxel: true
+  voxel_size: {xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1}
+  use_lidar: false
+
+combat_{regular_biomes_night_mob}_{combat_biomes}_{armor_material}_armors_{weapon_material}_sword_shield:
+  __cls__: "combat"
+  prompt: "combat a {regular_biomes_night_mob} in night {combat_biomes} with a {weapon_material} sword, shield, and a full suite of {armor_material} armors"
+  target_names: "{regular_biomes_night_mob}"
+  target_quantities: 1
+  reward_weights: 1
+  initial_mobs: "{regular_biomes_night_mob}"
+  initial_mob_spawn_range_low: [-7, 1, -7]
+  initial_mob_spawn_range_high: [7, 1, 7]
+  start_at_night: true
+  always_night: true
+  initial_inventory:
+    mainhand:
+      name: "{weapon_material}_sword"
+    feet:
+      name: "{armor_material}_boots"
+    legs:
+      name: "{armor_material}_leggings"
+    chest:
+      name: "{armor_material}_chestplate"
+    head:
+      name: "{armor_material}_helmet"
+    offhand:
+      name: "shield"
+  specified_biome: "{combat_biomes}"
+  allow_mob_spawn: false
+  use_voxel: true
+  voxel_size: {xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1}
+  use_lidar: false
+
+combat_{regular_biomes_mob}_{combat_biomes}_{armor_material}_armors_{weapon_material}_sword_shield:
+  __cls__: "combat"
+  prompt: "hunt a {regular_biomes_mob} in {combat_biomes} with a {weapon_material} sword, shield, and a full suite of {armor_material} armors"
+  target_names: "{regular_biomes_mob}"
+  target_quantities: 1
+  reward_weights: 1
+  initial_mobs: "{regular_biomes_mob}"
+  initial_mob_spawn_range_low: [-7, 1, -7]
+  initial_mob_spawn_range_high: [7, 1, 7]
+  start_at_night: false
+  initial_inventory:
+    mainhand:
+      name: "{weapon_material}_sword"
+    feet:
+      name: "{armor_material}_boots"
+    legs:
+      name: "{armor_material}_leggings"
+    chest:
+      name: "{armor_material}_chestplate"
+    head:
+      name: "{armor_material}_helmet"
+    offhand:
+      name: "shield"
+  specified_biome: "{combat_biomes}"
+  allow_mob_spawn: false
+  use_voxel: true
+  voxel_size: {xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1}
+  use_lidar: false
+
+combat_{plains_mob}_plains_{armor_material}_armors_{weapon_material}_sword_shield:
+  __cls__: "combat"
+  prompt: "hunt a {plains_mob} in plains with a {weapon_material} sword, shield, and a full suite of {armor_material} armors"
+  target_names: "{plains_mob}"
+  target_quantities: 1
+  reward_weights: 1
+  initial_mobs: "{plains_mob}"
+  initial_mob_spawn_range_low: [-7, 1, -7]
+  initial_mob_spawn_range_high: [7, 1, 7]
+  start_at_night: false
+  initial_inventory:
+    mainhand:
+      name: "{weapon_material}_sword"
+    feet:
+      name: "{armor_material}_boots"
+    legs:
+      name: "{armor_material}_leggings"
+    chest:
+      name: "{armor_material}_chestplate"
+    head:
+      name: "{armor_material}_helmet"
+    offhand:
+      name: "shield"
+  specified_biome: "plains"
+  allow_mob_spawn: false
+  use_voxel: true
+  voxel_size: {xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1}
+  use_lidar: false
+
+combat_guardian_ocean_{armor_material}_armors_{weapon_material}_sword_shield:
+  __cls__: "combat"
+  prompt: "combat a guardian in ocean with a {weapon_material} sword, shield, and a full suite of {armor_material} armors"
+  target_names: "guardian"
+  target_quantities: 1
+  reward_weights: 1
+  initial_mobs: "guardian"
+  initial_mob_spawn_range_low: [-5, 1, -5]
+  initial_mob_spawn_range_high: [5, 1, 5]
+  start_at_night: false
+  initial_inventory:
+    mainhand:
+      name: "{weapon_material}_sword"
+    feet:
+      name: "{armor_material}_boots"
+    legs:
+      name: "{armor_material}_leggings"
+    chest:
+      name: "{armor_material}_chestplate"
+    head:
+      name: "{armor_material}_helmet"
+    offhand:
+      name: "shield"
+    1:
+      name: "sea_lantern"
+      quantity: 4
+  specified_biome: "ocean"
+  allow_mob_spawn: false
+  use_voxel: true
+  voxel_size: {xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1}
+  use_lidar: false
+
+combat_squid_ocean_{armor_material}_armors_{weapon_material}_sword_shield:
+  __cls__: "combat"
+  prompt: "hunt a squid in ocean with a {weapon_material} sword, shield, and a full suite of {armor_material} armors"
+  target_names: "squid"
+  target_quantities: 1
+  reward_weights: 1
+  initial_mobs: "squid"
+  initial_mob_spawn_range_low: [-5, 1, -5]
+  initial_mob_spawn_range_high: [5, 1, 5]
+  start_at_night: false
+  initial_inventory:
+    mainhand:
+      name: "{weapon_material}_sword"
+    feet:
+      name: "{armor_material}_boots"
+    legs:
+      name: "{armor_material}_leggings"
+    chest:
+      name: "{armor_material}_chestplate"
+    head:
+      name: "{armor_material}_helmet"
+    offhand:
+      name: "shield"
+    1:
+      name: "sea_lantern"
+      quantity: 4
+  specified_biome: "ocean"
+  allow_mob_spawn: false
+  use_voxel: true
+  voxel_size: {xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1}
+  use_lidar: false
+
+combat_rabbit_desert_{armor_material}_armors_{weapon_material}_sword_shield:
+  __cls__: "combat"
+  prompt: "hunt a rabbit in desert with a {weapon_material} sword, shield, and a full suite of {armor_material} armors"
+  target_names: "rabbit"
+  target_quantities: 1
+  reward_weights: 1
+  initial_mobs: "rabbit"
+  initial_mob_spawn_range_low: [-7, 1, -7]
+  initial_mob_spawn_range_high: [7, 1, 7]
+  start_at_night: false
+  initial_inventory:
+    mainhand:
+      name: "{weapon_material}_sword"
+    feet:
+      name: "{armor_material}_boots"
+    legs:
+      name: "{armor_material}_leggings"
+    chest:
+      name: "{armor_material}_chestplate"
+    head:
+      name: "{armor_material}_helmet"
+    offhand:
+      name: "shield"
+  specified_biome: "desert"
+  allow_mob_spawn: false
+  use_voxel: true
+  voxel_size: {xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1}
+  use_lidar: false
+
+combat_mooshroom_mushroom_island_{armor_material}_armors_{weapon_material}_sword_shield:
+  __cls__: "combat"
+  prompt: "hunt a mooshroom in mushroom_island with a {weapon_material} sword, shield, and a full suite of {armor_material} armors"
+  target_names: "mooshroom"
+  target_quantities: 1
+  reward_weights: 1
+  initial_mobs: "mooshroom"
+  initial_mob_spawn_range_low: [-7, 1, -7]
+  initial_mob_spawn_range_high: [7, 1, 7]
+  start_at_night: false
+  initial_inventory:
+    mainhand:
+      name: "{weapon_material}_sword"
+    feet:
+      name: "{armor_material}_boots"
+    legs:
+      name: "{armor_material}_leggings"
+    chest:
+      name: "{armor_material}_chestplate"
+    head:
+      name: "{armor_material}_helmet"
+    offhand:
+      name: "shield"
+  specified_biome: "mushroom_island"
+  allow_mob_spawn: false
+  use_voxel: true
+  voxel_size: {xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1}
+  use_lidar: false
+
+combat_llama_extreme_hills_{armor_material}_armors_{weapon_material}_sword_shield:
+  __cls__: "combat"
+  prompt: "combat a llama in extreme hills with a {weapon_material} sword, shield, and a full suite of {armor_material} armors"
+  target_names: "llama"
+  target_quantities: 1
+  reward_weights: 1
+  initial_mobs: "llama"
+  initial_mob_spawn_range_low: [-7, 1, -7]
+  initial_mob_spawn_range_high: [7, 1, 7]
+  start_at_night: false
+  initial_inventory:
+    mainhand:
+      name: "{weapon_material}_sword"
+    feet:
+      name: "{armor_material}_boots"
+    legs:
+      name: "{armor_material}_leggings"
+    chest:
+      name: "{armor_material}_chestplate"
+    head:
+      name: "{armor_material}_helmet"
+    offhand:
+      name: "shield"
+  specified_biome: "extreme_hills"
+  allow_mob_spawn: false
+  use_voxel: true
+  voxel_size: {xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1}
+  use_lidar: false
+
+combat_wolf_taiga_{armor_material}_armors_{weapon_material}_sword_shield:
+  __cls__: "combat"
+  prompt: "combat a wolf in taiga with a {weapon_material} sword, shield, and a full suite of {armor_material} armors"
+  target_names: "wolf"
+  target_quantities: 1
+  reward_weights: 1
+  initial_mobs: "wolf"
+  initial_mob_spawn_range_low: [-7, 1, -7]
+  initial_mob_spawn_range_high: [7, 1, 7]
+  start_at_night: false
+  initial_inventory:
+    mainhand:
+      name: "{weapon_material}_sword"
+    feet:
+      name: "{armor_material}_boots"
+    legs:
+      name: "{armor_material}_leggings"
+    chest:
+      name: "{armor_material}_chestplate"
+    head:
+      name: "{armor_material}_helmet"
+    offhand:
+      name: "shield"
+  specified_biome: "taiga"
+  allow_mob_spawn: false
+  use_voxel: true
+  voxel_size: {xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1}
+  use_lidar: false
+
+combat_bat_{combat_biomes}_barehand:
+  __cls__: "combat"
+  prompt: "hunt a bat in night {combat_biomes}"
+  target_names: "bat"
+  target_quantities: 1
+  reward_weights: 1
+  initial_mobs: "bat"
+  initial_mob_spawn_range_low: [-7, 1, -7]
+  initial_mob_spawn_range_high: [7, 1, 7]
+  start_at_night: true
+  always_night: true
+  specified_biome: "{combat_biomes}"
+  allow_mob_spawn: false
+  use_voxel: true
+  voxel_size: {xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1}
+  use_lidar: false
+
+combat_{regular_biomes_mob}_{combat_biomes}_barehand:
+  __cls__: "combat"
+  prompt: "hunt a {regular_biomes_mob} in {combat_biomes}"
+  target_names: "{regular_biomes_mob}"
+  target_quantities: 1
+  reward_weights: 1
+  initial_mobs: "{regular_biomes_mob}"
+  initial_mob_spawn_range_low: [-7, 1, -7]
+  initial_mob_spawn_range_high: [7, 1, 7]
+  start_at_night: false
+  specified_biome: "{combat_biomes}"
+  allow_mob_spawn: false
+  use_voxel: true
+  voxel_size: {xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1}
+  use_lidar: false
+
+combat_{plains_mob}_plains_barehand:
+  __cls__: "combat"
+  prompt: "hunt a {plains_mob} in plains"
+  target_names: "{plains_mob}"
+  target_quantities: 1
+  reward_weights: 1
+  initial_mobs: "{plains_mob}"
+  initial_mob_spawn_range_low: [-7, 1, -7]
+  initial_mob_spawn_range_high: [7, 1, 7]
+  start_at_night: false
+  specified_biome: "plains"
+  allow_mob_spawn: false
+  use_voxel: true
+  voxel_size: {xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1}
+  use_lidar: false
+
+combat_squid_ocean_barehand:
+  __cls__: "combat"
+  prompt: "hunt a squid in ocean"
+  target_names: "squid"
+  target_quantities: 1
+  reward_weights: 1
+  initial_mobs: "squid"
+  initial_mob_spawn_range_low: [-5, 1, -5]
+  initial_mob_spawn_range_high: [5, 1, 5]
+  start_at_night: false
+  specified_biome: "ocean"
+  initial_inventory:
+    mainhand:
+      name: "sea_lantern"
+      quantity: 4
+  allow_mob_spawn: false
+  use_voxel: true
+  voxel_size: {xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1}
+  use_lidar: false
+
+combat_rabbit_desert_barehand:
+  __cls__: "combat"
+  prompt: "hunt a rabbit in desert"
+  target_names: "rabbit"
+  target_quantities: 1
+  reward_weights: 1
+  initial_mobs: "rabbit"
+  initial_mob_spawn_range_low: [-7, 1, -7]
+  initial_mob_spawn_range_high: [7, 1, 7]
+  start_at_night: false
+  specified_biome: "desert"
+  allow_mob_spawn: false
+  use_voxel: true
+  voxel_size: {xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1}
+  use_lidar: false
+
+combat_mooshroom_mushroom_island_barehand:
+  __cls__: "combat"
+  prompt: "hunt a mooshroom in mushroom_island"
+  target_names: "mooshroom"
+  target_quantities: 1
+  reward_weights: 1
+  initial_mobs: "mooshroom"
+  initial_mob_spawn_range_low: [-7, 1, -7]
+  initial_mob_spawn_range_high: [7, 1, 7]
+  start_at_night: false
+  specified_biome: "mushroom_island"
+  allow_mob_spawn: false
+  use_voxel: true
+  voxel_size: {xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1}
+  use_lidar: false
+
+combat_llama_extreme_hills_barehand:
+  __cls__: "combat"
+  prompt: "combat a llama in extreme hills"
+  target_names: "llama"
+  target_quantities: 1
+  reward_weights: 1
+  initial_mobs: "llama"
+  initial_mob_spawn_range_low: [-7, 1, -7]
+  initial_mob_spawn_range_high: [7, 1, 7]
+  start_at_night: false
+  specified_biome: "extreme_hills"
+  allow_mob_spawn: false
+  use_voxel: true
+  voxel_size: {xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1}
+  use_lidar: false
+
+# ====== harvest tasks ======
+# ====shear sheep====
+harvest_wool:
+  __cls__: "harvest"
+  prompt: "shear a sheep"
+  target_names: "wool"
+  target_quantities: 1
+  reward_weights: 1
+  use_voxel: true
+  voxel_size: { xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1 }
+  use_lidar: false
+
+harvest_wool_with_sheep:
+  __cls__: "harvest"
+  prompt: "shear a sheep with a sheep nearby"
+  target_names: "wool"
+  target_quantities: 1
+  reward_weights: 1
+  initial_mobs: "sheep"
+  initial_mob_spawn_range_low: [-10, 1, -10]
+  initial_mob_spawn_range_high: [10, 1, 10]
+  use_voxel: true
+  voxel_size: { xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1 }
+  use_lidar: false
+
+harvest_wool_with_shears:
+  __cls__: "harvest"
+  prompt: "shear a sheep with shears"
+  target_names: "wool"
+  target_quantities: 1
+  reward_weights: 1
+  initial_inventory:
+    mainhand:
+      name: "shears"
+  use_voxel: true
+  voxel_size: { xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1 }
+  use_lidar: false
+
+harvest_wool_with_shears_and_sheep:
+  __cls__: "harvest"
+  prompt: "shear a sheep with shears and a sheep nearby"
+  target_names: "wool"
+  target_quantities: 1
+  reward_weights: 1
+  initial_mobs: "sheep"
+  initial_mob_spawn_range_low: [-10, 1, -10]
+  initial_mob_spawn_range_high: [10, 1, 10]
+  initial_inventory:
+    mainhand:
+      name: "shears"
+  use_voxel: true
+  voxel_size: { xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1 }
+  use_lidar: false
+
+harvest_wool_{sheep_biomes}:
+  __cls__: "harvest"
+  prompt: "shear a sheep in {sheep_biomes}"
+  target_names: "wool"
+  target_quantities: 1
+  reward_weights: 1
+  specified_biome: "{sheep_biomes}"
+  use_voxel: true
+  voxel_size: { xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1 }
+  use_lidar: false
+
+harvest_wool_{sheep_biomes}_with_shears:
+  __cls__: "harvest"
+  prompt: "shear a sheep in {sheep_biomes} with shears"
+  target_names: "wool"
+  target_quantities: 1
+  reward_weights: 1
+  initial_inventory:
+    mainhand:
+      name: "shears"
+  specified_biome: "{sheep_biomes}"
+  use_voxel: true
+  voxel_size: { xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1 }
+  use_lidar: false
+
+# ====chop trees====
+harvest_log_with_diamond_axe:
+  __cls__: "harvest"
+  prompt: "chop trees to obtain log with diamond axe"
+  target_names: "log"
+  target_quantities: 1
+  reward_weights: 1
+  initial_inventory:
+    mainhand:
+      name: "diamond_axe"
+  use_voxel: true
+  voxel_size: { xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1 }
+  use_lidar: false
+
+# ====obtain milk====
+harvest_milk:
+  __cls__: "harvest"
+  prompt: "obtain milk from a cow"
+  target_names: "milk_bucket"
+  target_quantities: 1
+  reward_weights: 1
+  use_voxel: true
+  voxel_size: { xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1 }
+  use_lidar: false
+
+harvest_milk_with_cow:
+  __cls__: "harvest"
+  prompt: "obtain milk from a cow with a cow nearby"
+  target_names: "milk_bucket"
+  target_quantities: 1
+  reward_weights: 1
+  initial_mobs: "cow"
+  initial_mob_spawn_range_low: [-10, 1, -10]
+  initial_mob_spawn_range_high: [10, 1, 10]
+  use_voxel: true
+  voxel_size: { xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1 }
+  use_lidar: false
+
+harvest_milk_with_empty_bucket:
+  __cls__: "harvest"
+  prompt: "obtain milk from a cow with an empty bucket"
+  target_names: "milk_bucket"
+  target_quantities: 1
+  reward_weights: 1
+  initial_inventory:
+    mainhand:
+      name: "bucket"
+  use_voxel: true
+  voxel_size: { xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1 }
+  use_lidar: false
+
+harvest_milk_with_empty_bucket_and_cow:
+  __cls__: "harvest"
+  prompt: "obtain milk from a cow with an empty bucket and a cow nearby"
+  target_names: "milk_bucket"
+  target_quantities: 1
+  reward_weights: 1
+  initial_mobs: "cow"
+  initial_mob_spawn_range_low: [-10, 1, -10]
+  initial_mob_spawn_range_high: [10, 1, 10]
+  initial_inventory:
+    mainhand:
+      name: "bucket"
+  use_voxel: true
+  voxel_size: { xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1 }
+  use_lidar: false
+
+harvest_milk_{cow_biomes}:
+  __cls__: "harvest"
+  prompt: "obtain milk from a cow in {cow_biomes}"
+  target_names: "milk_bucket"
+  target_quantities: 1
+  reward_weights: 1
+  specified_biome: "{cow_biomes}"
+  use_voxel: true
+  voxel_size: { xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1 }
+  use_lidar: false
+
+harvest_milk_{cow_biomes}_with_an_empty_bucket:
+  __cls__: "harvest"
+  prompt: "obtain milk from a cows in {cow_biomes} with an empty bucket"
+  target_names: "milk_bucket"
+  target_quantities: 1
+  reward_weights: 1
+  initial_inventory:
+    mainhand:
+      name: "bucket"
+  specified_biome: "{cow_biomes}"
+  use_voxel: true
+  voxel_size: { xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1 }
+  use_lidar: false
+
+# ====harvest obsidians====
+harvest_{quantity}_obsidian:
+  __cls__: "harvest"
+  prompt: "obtain {quantity} obsidian"
+  target_names: "obsidian"
+  target_quantities: "{quantity}"
+  reward_weights: 1
+  use_voxel: true
+  voxel_size: { xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1 }
+  use_lidar: false
+
+harvest_{quantity}_obsidian_with_diamond_pickaxe:
+  __cls__: "harvest"
+  prompt: "obtain {quantity} obsidian given a diamond pickaxe"
+  target_names: "obsidian"
+  target_quantities: "{quantity}"
+  reward_weights: 1
+  initial_inventory:
+    mainhand:
+      name: "diamond_pickaxe"
+  use_voxel: true
+  voxel_size: { xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1 }
+  use_lidar: false
+
+harvest_{quantity}_obsidian_with_water_bucket:
+  __cls__: "harvest"
+  prompt: "obtain {quantity} obsidian given a water bucket"
+  target_names: "obsidian"
+  target_quantities: "{quantity}"
+  reward_weights: 1
+  initial_inventory:
+    mainhand:
+      name: "water_bucket"
+  use_voxel: true
+  voxel_size: { xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1 }
+  use_lidar: false
+
+harvest_{quantity}_obsidian_with_diamond_pickaxe_and_water_bucket:
+  __cls__: "harvest"
+  prompt: "obtain {quantity} obsidian given a diamond pickaxe and a water bucket"
+  target_names: "obsidian"
+  target_quantities: "{quantity}"
+  reward_weights: 1
+  initial_inventory:
+    mainhand:
+      name: "diamond_pickaxe"
+    1:
+      name: "water_bucket"
+  use_voxel: true
+  voxel_size: { xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1 }
+  use_lidar: false
+
+# ====harvest ores====
+harvest_{quantity}_{ore_type}:
+  __cls__: "harvest"
+  prompt: "obtain {quantity} {ore_type}"
+  target_names: "{ore_type}"
+  target_quantities: "{quantity}"
+  reward_weights: 1
+  use_voxel: true
+  voxel_size: { xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1 }
+  use_lidar: false
+
+harvest_{quantity}_{ore_type}_with_{pickaxe_material}_pickaxe:
+  __cls__: "harvest"
+  prompt: "obtain {quantity} {ore_type} with {pickaxe_material} pickaxe"
+  target_names: "{ore_type}"
+  target_quantities: "{quantity}"
+  reward_weights: 1
+  initial_inventory:
+    mainhand:
+      name: "{pickaxe_material}_pickaxe"
+  use_voxel: true
+  voxel_size: { xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1 }
+  use_lidar: false
+
+# ====harvest core items====
+harvest_{quantity}_{natural_items}:
+  __cls__: "harvest"
+  prompt: "obtain {quantity} {natural_items}"
+  target_names: "{natural_items}"
+  target_quantities: "{quantity}"
+  reward_weights: 1
+  use_voxel: true
+  voxel_size: { xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1 }
+  use_lidar: false
+
+harvest_{quantity}_{craft_items}:
+  __cls__: "harvest"
+  prompt: "find material and craft to obtain {quantity} {craft_items}"
+  target_names: "{craft_items}"
+  target_quantities: "{quantity}"
+  reward_weights: 1
+  use_voxel: true
+  voxel_size: { xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1 }
+  use_lidar: false
+
+harvest_{quantity}_{crafting_table_items}:
+  __cls__: "harvest"
+  prompt: "find material and craft to obtain {quantity} {crafting_table_items}"
+  target_names: "{crafting_table_items}"
+  target_quantities: "{quantity}"
+  reward_weights: 1
+  use_voxel: true
+  voxel_size: { xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1 }
+  use_lidar: false
+
+harvest_{quantity}_{crafting_table_items}_with_crafting_table:
+  __cls__: "harvest"
+  prompt: "find material and craft to obtain {quantity} {crafting_table_items} given a crafting table"
+  target_names: "{crafting_table_items}"
+  target_quantities: "{quantity}"
+  reward_weights: 1
+  initial_inventory:
+    mainhand:
+      name: "crafting_table"
+  use_voxel: true
+  voxel_size: { xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1 }
+  use_lidar: false
+
+harvest_{quantity}_{furnace_items}:
+  __cls__: "harvest"
+  prompt: "find material and smelt to obtain {quantity} {furnace_items}"
+  target_names: "{furnace_items}"
+  target_quantities: "{quantity}"
+  reward_weights: 1
+  use_voxel: true
+  voxel_size: { xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1 }
+  use_lidar: false
+
+harvest_{quantity}_{furnace_items}_with_furnace_and_fuel:
+  __cls__: "harvest"
+  prompt: "find material and smelt to obtain {quantity} {furnace_items} given a furnace and fuels"
+  target_names: "{furnace_items}"
+  target_quantities: "{quantity}"
+  reward_weights: 1
+  initial_inventory:
+    mainhand:
+      name: "furnace"
+    1:
+      name: "coal"
+      quantity: 20
+  use_voxel: true
+  voxel_size: { xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1 }
+  use_lidar: false
+
+harvest_{quantity}_{natural_core}_{biome_subset}:
+  __cls__: "harvest"
+  prompt: "obtain {quantity} {natural_core} in {biome_subset}"
+  target_names: "{natural_core}"
+  target_quantities: "{quantity}"
+  reward_weights: 1
+  specified_biome: "{biome_subset}"
+  use_voxel: true
+  voxel_size: { xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1 }
+  use_lidar: false
+
+harvest_{quantity}_{hand_craft_core}_{biome_subset}:
+  __cls__: "harvest"
+  prompt: "find material and craft to obtain {quantity} {hand_craft_core} in {biome_subset}"
+  target_names: "{hand_craft_core}"
+  target_quantities: "{quantity}"
+  reward_weights: 1
+  specified_biome: "{biome_subset}"
+  use_voxel: true
+  voxel_size: { xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1 }
+  use_lidar: false
+
+harvest_{quantity}_{crafting_table_core}_{biome_subset}:
+  __cls__: "harvest"
+  prompt: "find material and craft to obtain {quantity} {crafting_table_core} in {biome_subset}"
+  target_names: "{crafting_table_core}"
+  target_quantities: "{quantity}"
+  reward_weights: 1
+  specified_biome: "{biome_subset}"
+  use_voxel: true
+  voxel_size: { xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1 }
+  use_lidar: false
+
+harvest_{quantity}_{crafting_table_core}_{biome_subset}_with_crafting_table:
+  __cls__: "harvest"
+  prompt: "find material and craft to obtain {quantity} {crafting_table_core} in {biome_subset} given a crafting table"
+  target_names: "{crafting_table_core}"
+  target_quantities: "{quantity}"
+  reward_weights: 1
+  initial_inventory:
+    mainhand:
+      name: "crafting_table"
+  specified_biome: "{biome_subset}"
+  use_voxel: true
+  voxel_size: { xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1 }
+  use_lidar: false
+
+harvest_{quantity}_{furnace_core}_{biome_subset}:
+  __cls__: "harvest"
+  prompt: "find material and smelt to obtain {quantity} {furnace_core} in {biome_subset}"
+  target_names: "{furnace_core}"
+  target_quantities: "{quantity}"
+  reward_weights: 1
+  specified_biome: "{biome_subset}"
+  use_voxel: true
+  voxel_size: { xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1 }
+  use_lidar: false
+
+harvest_{quantity}_{furnace_core}_{biome_subset}_with_furnace_and_fuel:
+  __cls__: "harvest"
+  prompt: "find material and smelt to obtain {quantity} {furnace_core} in {biome_subset} given a furnace and fuels"
+  target_names: "{furnace_core}"
+  target_quantities: "{quantity}"
+  reward_weights: 1
+  initial_inventory:
+    mainhand:
+      name: "furnace"
+    1:
+      name: "coal"
+      quantity: 50
+  specified_biome: "{biome_subset}"
+  use_voxel: true
+  voxel_size: { xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1 }
+  use_lidar: false
+
+# ====== playthrough tasks ======
+playthrough:
+  __cls__: "playthrough"
+  prompt: "Defeat the Ender Dragon and obtain the trophy dragon egg."
+  use_voxel: true
+  voxel_size: { xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1 }
+  use_lidar: false
+
+# ====== techtree tasks ======
+techtree_from_barehand_to_{from_barehand_tools}_{target_tools}:
+  __cls__: "techtree"
+  prompt: "find material and craft a {from_barehand_tools} {target_tools}"
+  tech_item: "{from_barehand_tools}_{target_tools}"
+  use_voxel: true
+  voxel_size: { xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1 }
+  use_lidar: false
+
+techtree_from_barehand_to_leather_{target_armor}:
+  __cls__: "techtree"
+  prompt: "find material and craft a leather {target_tools_armor}"
+  tech_item: "leather_{target_armor}"
+  use_voxel: true
+  voxel_size: { xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1 }
+  use_lidar: false
+
+techtree_from_barehand_to_{from_barehand_tools_armor}_{target_tools_armor}:
+  __cls__: "techtree"
+  prompt: "find material and craft a {from_barehand_tools_armor} {target_tools_armor}"
+  tech_item: "{from_barehand_tools_armor}_{target_tools_armor}"
+  use_voxel: true
+  voxel_size: { xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1 }
+  use_lidar: false
+
+techtree_from_barehand_to_archery:
+  __cls__: "techtree"
+  prompt: "find material and craft a bow"
+  tech_item: "bow"
+  use_voxel: true
+  voxel_size: { xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1 }
+  use_lidar: false
+
+techtree_from_barehand_to_explosives:
+  __cls__: "techtree"
+  prompt: "find material and craft a tnt"
+  tech_item: "tnt"
+  use_voxel: true
+  voxel_size: { xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1 }
+  use_lidar: false
+
+techtree_from_barehand_to_redstone_{redstone_list}:
+  __cls__: "techtree"
+  prompt: "find material and craft a {redstone_list}"
+  tech_item: "{redstone_list}"
+  use_voxel: true
+  voxel_size: { xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1 }
+  use_lidar: false
+
+techtree_from_wood_to_{from_wood_tools}_{target_tools}:
+  __cls__: "techtree"
+  prompt: "starting from wood tools, craft and use a {from_wood_tools} {target_tools}"
+  tech_item: "{from_wood_tools}_{target_tools}"
+  initial_inventory:
+    mainhand:
+      name: "wooden_pickaxe"
+    1:
+      name: "wooden_axe"
+    2:
+      name: "wooden_hoe"
+    3:
+      name: "wooden_sword"
+    4:
+      name: "wooden_shovel"
+  use_voxel: true
+  voxel_size: { xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1 }
+  use_lidar: false
+
+techtree_from_wood_to_leather_{target_armor}:
+  __cls__: "techtree"
+  prompt: "starting from wood tools, craft and use a leather {target_tools_armor}"
+  tech_item: "leather_{target_armor}"
+  initial_inventory:
+    mainhand:
+      name: "wooden_pickaxe"
+    1:
+      name: "wooden_axe"
+    2:
+      name: "wooden_hoe"
+    3:
+      name: "wooden_sword"
+    4:
+      name: "wooden_shovel"
+  use_voxel: true
+  voxel_size: { xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1 }
+  use_lidar: false
+
+techtree_from_wood_to_{from_wood_tools_armor}_{target_tools_armor}:
+  __cls__: "techtree"
+  prompt: "starting from wood tools, craft and use a {from_wood_tools_armor} {target_tools_armor}"
+  tech_item: "{from_wood_tools_armor}_{target_tools_armor}"
+  initial_inventory:
+    mainhand:
+      name: "wooden_pickaxe"
+    1:
+      name: "wooden_axe"
+    2:
+      name: "wooden_hoe"
+    3:
+      name: "wooden_sword"
+    4:
+      name: "wooden_shovel"
+  use_voxel: true
+  voxel_size: { xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1 }
+  use_lidar: false
+
+techtree_from_wood_to_archery:
+  __cls__: "techtree"
+  prompt: "starting from wood tools, craft and use a bow"
+  tech_item: "bow"
+  initial_inventory:
+    mainhand:
+      name: "wooden_pickaxe"
+    1:
+      name: "wooden_axe"
+    2:
+      name: "wooden_hoe"
+    3:
+      name: "wooden_sword"
+    4:
+      name: "wooden_shovel"
+  use_voxel: true
+  voxel_size: { xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1 }
+  use_lidar: false
+
+techtree_from_wood_to_redstone_{redstone_list}:
+  __cls__: "techtree"
+  prompt: "starting from wood tools, craft and use a {redstone_list}"
+  tech_item: "{redstone_list}"
+  initial_inventory:
+    mainhand:
+      name: "wooden_pickaxe"
+    1:
+      name: "wooden_axe"
+    2:
+      name: "wooden_hoe"
+    3:
+      name: "wooden_sword"
+    4:
+      name: "wooden_shovel"
+  use_voxel: true
+  voxel_size: { xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1 }
+  use_lidar: false
+
+techtree_from_stone_to_{from_stone_tools_armor}_{target_tools_armor}:
+  __cls__: "techtree"
+  prompt: "starting from stone tools, craft and use a {from_stone_tools_armor} {target_tools_armor}"
+  tech_item: "{from_stone_tools_armor}_{target_tools_armor}"
+  initial_inventory:
+    mainhand:
+      name: "stone_pickaxe"
+    1:
+      name: "stone_axe"
+    2:
+      name: "stone_hoe"
+    3:
+      name: "stone_sword"
+    4:
+      name: "stone_shovel"
+  use_voxel: true
+  voxel_size: { xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1 }
+  use_lidar: false
+
+techtree_from_stone_to_explosives:
+  __cls__: "techtree"
+  prompt: "starting from stone tools, craft and use a tnt"
+  tech_item: "tnt"
+  initial_inventory:
+    mainhand:
+      name: "stone_pickaxe"
+    1:
+      name: "stone_axe"
+    2:
+      name: "stone_hoe"
+    3:
+      name: "stone_sword"
+    4:
+      name: "stone_shovel"
+  use_voxel: true
+  voxel_size: { xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1 }
+  use_lidar: false
+
+techtree_from_stone_to_redstone_{redstone_list}:
+  __cls__: "techtree"
+  prompt: "starting from stone tools, craft and use a {redstone_list}"
+  tech_item: "{redstone_list}"
+  initial_inventory:
+    mainhand:
+      name: "stone_pickaxe"
+    1:
+      name: "stone_axe"
+    2:
+      name: "stone_hoe"
+    3:
+      name: "stone_sword"
+    4:
+      name: "stone_shovel"
+  use_voxel: true
+  voxel_size: { xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1 }
+  use_lidar: false
+
+techtree_from_iron_to_{from_iron_tools_armor}_{target_tools_armor}:
+  __cls__: "techtree"
+  prompt: "starting from iron tools, craft and use a {from_iron_tools_armor} {target_tools_armor}"
+  tech_item: "{from_iron_tools_armor}_{target_tools_armor}"
+  initial_inventory:
+    mainhand:
+      name: "iron_pickaxe"
+    1:
+      name: "iron_axe"
+    2:
+      name: "iron_hoe"
+    3:
+      name: "iron_sword"
+    4:
+      name: "iron_shovel"
+  use_voxel: true
+  voxel_size: { xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1 }
+  use_lidar: false
+
+techtree_from_iron_to_redstone_{redstone_list}:
+  __cls__: "techtree"
+  prompt: "starting from iron tools, craft and use a {redstone_list}"
+  tech_item: "{redstone_list}"
+  initial_inventory:
+    mainhand:
+      name: "iron_pickaxe"
+    1:
+      name: "iron_axe"
+    2:
+      name: "iron_hoe"
+    3:
+      name: "iron_sword"
+    4:
+      name: "iron_shovel"
+  use_voxel: true
+  voxel_size: { xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1 }
+  use_lidar: false
+
+techtree_from_gold_to_{from_gold_tools_armor}_{target_tools_armor}:
+  __cls__: "techtree"
+  prompt: "starting from gold tools, craft and use a {from_gold_tools_armor} {target_tools_armor}"
+  tech_item: "{from_gold_tools_armor}_{target_tools_armor}"
+  initial_inventory:
+    mainhand:
+      name: "golden_pickaxe"
+    1:
+      name: "golden_axe"
+    2:
+      name: "golden_hoe"
+    3:
+      name: "golden_sword"
+    4:
+      name: "golden_shovel"
+  use_voxel: true
+  voxel_size: { xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1 }
+  use_lidar: false
+
+techtree_from_gold_to_redstone_{redstone_list}:
+  __cls__: "techtree"
+  prompt: "starting from gold tools, craft and use a {redstone_list}"
+  tech_item: "{redstone_list}"
+  initial_inventory:
+    mainhand:
+      name: "golden_pickaxe"
+    1:
+      name: "golden_axe"
+    2:
+      name: "golden_hoe"
+    3:
+      name: "golden_sword"
+    4:
+      name: "golden_shovel"
+  use_voxel: true
+  voxel_size: { xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1 }
+  use_lidar: false
+
+techtree_from_diamond_to_redstone_{redstone_list}:
+  __cls__: "techtree"
+  prompt: "starting from diamond tools, craft and use a {redstone_list}"
+  tech_item: "{redstone_list}"
+  initial_inventory:
+    mainhand:
+      name: "diamond_pickaxe"
+    1:
+      name: "diamond_axe"
+    2:
+      name: "diamond_hoe"
+    3:
+      name: "diamond_sword"
+    4:
+      name: "diamond_shovel"
+  use_voxel: true
+  voxel_size: { xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1 }
+  use_lidar: false
+
+# ====== survival tasks ======
+survival:
+  __cls__: "survival"
+  prompt: "survive as long as possible"
+  target_days: 100
+  use_voxel: true
+  voxel_size: {xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1}
+  use_lidar: false
+
+survival_sword_food:
+  __cls__: "survival"
+  prompt: "survive as long as possible given a sword and some food"
+  target_days: 100
+  initial_inventory:
+    mainhand:
+      name: "iron_sword"
+    1:
+      name: "cooked_beef"
+      quantity: 8
+  use_voxel: true
+  voxel_size: {xmin: -1, ymin: -1, zmin: -1, xmax: 1, ymax: 1, zmax: 1}
+  use_lidar: false

@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Interactive + Auto-debugger" type="Multirun" factoryName="Multirun" separateTabs="false" reuseTabsWithFailures="false" startOneByOne="true" markFailedProcess="true" hideSuccessProcess="false" delayTime="1.0">
+    <runConfiguration name="interactive.py" type="Shell Script" />
+    <runConfiguration name="Attach on 1044" type="Remote JVM Debug" />
+    <method v="2" />
+  </configuration>
+</component>

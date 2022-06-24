@@ -1,0 +1,377 @@
+0.37.0
+-------------------
+Fix: for timeLimitInSeconds.
+Fix: Multi-agent timeouts added.
+New: Log for scoring missions.
+New: malmoenv - python to Java environment for OpenAI gym.
+New: Observations from compass (with Biome world generation).
+
+0.36.0
+-------------------
+Fixes for MacOS stability problems.
+
+0.35.0
+-------------------
+New: Now possible for agent to select the Minecraft client's command port using 
+an additional ClientInfo constructor when static port allocation is required.
+Fix: Replaced XSD schema C++ generation in Malmo Agent which removes dependency on
+CodeSynthesis XSD. On Windows that required the Visual Studio 2013 for debug builds.
+New: C# is now built on Windows using modern CMake.
+Chg: Removed support for Mono.
+Chg: Removed support for Torch.
+Chg: Removed Support for Lua.
+New: Support building Malmo as a Python (native) wheel.
+New: Exposed ClientPool clients C++ vector member as Python iterable.
+Chg: Timeouts added to startMission and other agent to Minecraft client communications.
+
+0.34.0
+-------------------
+New: Can now record video streams as individual frames rather than video.
+Fix: Many fixes to recording, tarring, etc - improved stability.
+New: "Human" action space and observations, for tighter human-in-the-loop scenarios.
+New: Titles and subtitles are now returned as part of the chat observation.
+New: [Stability] ObservationFromSystem to return stats on Minecraft's health (eg render/server/client ticks per second)
+New: [Stability] Option to kill Minecraft clients; command-line switch for launchClient to replace clients when killed.
+New: DrawSign allows signposts to be drawn with specific text.
+New: 'includeNBT' flag for ObservationFromRay, to return JSON NBTTagCompound for tile entities.
+New: 'decision_tree_test.py' to test signs/NBTTagCompound.
+New: 'braitenberg_simulation.py' to test luminance video producer (and for fun)
+New: 'mouse_steering_test.py' to test human action space
+New: Dockerfiles for automated building (Linux only, so far)
+Fix: Integration tests can now be run headless - should be reliable (no false negatives)
+
+0.31.0
+-------------------
+New: Samples now compatible with Python 2 and 3
+New: Added luminance, 32bpp depth-map and colour-map video producers
+New: Support for containers - drawing them, transferring inventory, observation producers etc
+
+0.30.0
+-------------------
+New: UPGRADED TO LATEST MC/FORGE
+Breaking: AllowSpawning/AllowedMobs now affects mob_spawners
+Breaking: "Minecart" entity renamed to "MinecartRideable"
+New: Now includes all mobs up to Minecraft 1.11, and "mob_zoo.py" sample
+New: Added new blocktypes and items up to Minecraft 1.11
+New: Added support for drawing tuned note blocks and "note_block_test.py" sample
+
+0.22.0
+-------------------
+New: ObservationFromRay now returns distance.
+New: Added socket logging code to Mod, available in Mod UI.
+New: Added logging code to platform, available through Malmo API.
+New: startMission now provides more error details in exceptions; multi-agent samples hardened by using this.
+New: ObservationFromNearbyEntities now returns entity life.
+New: RewardForDamagingEntity plus sample. (#537)
+
+0.21.0
+-------------------
+New: yaw and pitch added to nearby entity observations.
+New: reward handler and quit producer for mob catching. (#440)
+
+0.20.0
+-------------------
+New: Moving target decorator. (#458)
+New: Multi-agent turn-based scheduler. (#441)
+
+0.19.0
+-------------------
+New: Multi-agent scenario reworked.
+New: Version checking - schemas, mod and platform must all have the same version number. (#334)
+New: Time-based rewards. (#126)
+New: Discrete jumpuse action (great for nerd poling). (#400)
+New: Team rewards. (#279)
+New: Discrete strafe and jump actions, autojump and autofall. (#352, #321)
+New: Simple animation decorator. (#389)
+
+0.18.0
+-------------------
+New: Added RewardForStructureCopying and BuildBattleDecorator. (#337)
+Fix: [BREAKING CHANGE] The centre of the grid observation was being rounded to the nearest int in the y-axis. (#370)
+Fix: [BREAKING CHANGE] temp folder and "mission_recordings" now removed from path of files in recordings. (#298)
+Fix: Three second grace period on spawning removed. (#88)
+New: WorldTime and TotalTime added to ObservationFromFullStats. (#262)
+Fix: AbsoluteMovementCommands can now teleport outside the current chunk. (#353)
+New: [BREAKING CHANGE] AbsoluteMovementCommands tpx, tpy, tpz now applied immediately.
+Fix: [BREAKING CHANGE] Extra block properties returned by ObservationFromRay are now prefixed with "prop_" to prevent collisions. (#355)
+New: Agent can now quit by using MissionQuitCommands. (#170)
+Fix: FileWorldGenerator load issue + file_test.py to test fix. (#342)
+New: Python sample to test initial chunk loading. (#338)
+New: Added startAtWithPitchAndYaw to API. (#295)
+New: Greater control over drawing of rails and stairs. (#323)
+New: Entities can now be placed by DrawingDecorator. (#322)
+Fix: Weather is periodically reset to mission requirements. (#264)
+New: [BREAKING CHANGE] Mission worlds are now deleted after use unless destroyAfterUse is false. (#76)
+Fix: ContinuousMovementCommands now allow the setting of yaw/pitch by Discrete or Absolute movement commands. (#255)
+Fix: Continuous-mode use/attack weren't correctly triggering rewards for discarding/collecting items. (#303)
+Fix: Discrete-mode use/attack weren't correctly triggering rewards for discarding/collecting items. (#297)
+New: ObservationFromGrid has new optional attribute 'absoluteCoords' for fixed-location grids. (#293)
+
+0.17.0 (2016-08-16)
+-------------------
+Fix: Discrete use and attack now affect the inventory. (#247)
+Fix: Rewards would occasionally get doubled. (#275)
+Fix: Stopped mobs spawing illegally. (#280)
+New: Added has_mission_begun flag to world state, to solve problems with short missions. (#118, #236)
+Fix: [BREAKING CHANGE] Rewards now sent as simple strings rather than XML, for speed - changes recorded rewards format. (#261)
+New: ALEAgentHost.setSeed allows ALE experiments to be seeded. (#254)
+Fix: No longer need a fresh MissionRecordSpec for each call to startMission. (#256)
+New: [BREAKING CHANGE] MissionRecordSpec.getTemporaryDirectory() now moved to AgentHost.getRecordingTemporaryDirectory().
+New: MALMO_TEMP_PATH environment variable now used to determine where temp recording files are created. (#21)
+New: TimestampedFrame now includes xPos,yPos,zPos,yaw and pitch information. (#257, #250, #231)
+
+0.16.1 (2016-08-03)
+-------------------
+New: Simple "craft" command now works with smelting recipes - eg "craft cooked_rabbit" to cook raw rabbit meat. (#177)
+Fix: [BREAKING CHANGE] Malmo java bindings now use pacakge com.microsoft.msr.malmo. (#232)
+
+0.16.0 (2016-07-29)
+-------------------
+New: DiscreteCommandHandler now supports AgentQuitFromTouchingBlockType and RewardForTouchingBlockType. (#241)
+New: MissionSpec has get/setSummary, getListOfCommandHandlers, getAllowedCommands. (#217)
+New: DiscreteCommandHandler now supports attack and use commands. (#219)
+New: Bonus - added AllowedMobs to ServerInitialConditions to control which mobs are allowed to spawn (does not affect mob_spawners).
+New: Bonus - can now draw mob_spawner blocks and specify the entity they spawn as a variant.
+New: ObservationFromRay returns info about nearest block/item/entity in the agent's direct line of sight. (#184)
+Fix: RewardForDiscardingItem/RewardForCollectingItem now work with variations, colours etc.
+Fix: Inventory and Entity observations now return information in the same format we use to specify things (eg Type, Variation, Colour).
+New: More types supported in BlockDrawing, Inventory initialisation etc - see FlowerTypes, EntityTypes, MonsterEggTypes.
+New: AgentQuitFromCollectingItem. (#171)
+New: ObservationsFromFullStats now additionally returns Air. (#214)
+New: Cross-platform Human Action Component.
+
+0.15.0 (2016-07-18)
+-------------------
+New: Added ObservationFromNearbyEntities (#89) and updated reward_for_items_test.py to demonstrate it.
+New: Simplified inventory movement with swapInventoryItems command. (#148)
+New: Can combine inventory slots using new combineInventoryItems command. (#189)
+New: Free-floating blocks can now be placed using DrawItem, and used in RewardForDiscardingItem/RewardForCollectingItem.
+New: Crafting now triggers RewardForDiscardingItem/RewardForCollectingItem.
+New: Python bindings changed for videoframe pixels - now returns a native python array, for faster use in numpy/PIL etc. (#187)
+
+0.14.0 (2016-07-07)
+-------------------
+New: Basic, first stage crafting support added. (#11)
+New: ObservationsFromMazeOptimalPath has been turned into general purpose ObservationFromSubgoalPositionList.
+New: Maze generator can now take care of quitting mission when agent reaches goal. (#103)
+New: AgentQuitFromReachingCommandQuota. (#109)
+Rewards are now only sent when triggered. (#120)
+Multi-dimensional rewards are now possible, using a 'dimension' parameter on each RewardProducer.
+Pitch command had positive as up, which was inconsistent with Minecraft and Placement section.
+
+0.13.0 (2016-07-01)
+-------------------
+New: tp x y z command. (#112)
+Fix: Hotbar commands moved from ContinuousMovementCommands to InventoryCommands.
+Fix: Client quit producers are now queried between executing commands, in cases where commands get clustered.
+New: Test for AgentQuitFromReachingPosition.
+Some MissionSpec calls now take float coordinates to match XML (#107). If you want to start in the middle of a block,
+  make sure that the x and z coordinates end in 0.5.
+MissionSpec::endAt now takes tolerance parameter.
+peekWorldState and getWorldState now return WorldState instances rather than smart pointers. (#124)
+New: API call MissionSpec::setViewpoint to change the camera viewpoint.
+Fix: ALE_HAC.py was broken. (#114)
+
+0.12.0 (2016-06-24)
+-------------------
+New: Issue 55 (added forceReset flag to FlatWorldGenerator, DefaultWorldGenerator and FileWorldGenerator).
+New: Issue 84 (added seed to FlatWorldGenerator and DefaultWorldGenerator).
+Add: Issue 82 (new RewardForDiscardingItem mission handler).
+Add: Issue 73 (added new DiscardCurrentItem command to InventoryCommands).
+Add: Issue 4 (Overclocking) - can set tick length, and limit onscreen render.
+Fix: Issue 48 (Grid observer crippled by bad TCP string sending method).
+Fix: Issue 52 (Malmo's internal Minecraft client/server messages limited to 64k data per message).
+Fix: Issue 40 (added tostring() methods to Lua and Python classes).
+Fix: Issue 7 (requesting depth map would break the recorded video).
+Fix: Issue 81 (changing video size between missions could crash the platform).
+Fix: Issue 2 (XSDs no longer need to be in the current folder).
+Add: New API call: MissionSpec::requestVideoWithDepth.
+Add: New API call: AgentHost::peekWorldState.
+
+0.11.2 (2016-06-06)
+-------------------
+Fix: Issue 22 (attack auto-repeat not working if Minecraft hasn't had focus).
+Fix: Issue 33 (framerate slowdown after 500+ missions).
+Fix: Issue 37 (occasional messages lost because two servers listening on same port).
+
+0.11.1 (2016-05-20)
+-------------------
+Add: Login feature and UI required for authentication in multi-agent missions
+Fix: Render size set correctly, avoiding aspect ratio distortion.
+Add: Support for multi-agent missions. New sample: MultiMaze.py
+
+0.11.0 (2016-05-12)
+-------------------
+Change: All project code renamed to 'Malmo'.
+Add: New ALEAgentHost, to use the Atari Learning Environment as a back-end instead of Minecraft.
+Add: Chat commands and observations now supported.
+Fix: MissionSpec::observeGrid and ::observeDistance were broken.
+
+0.10.4 (2016-04-20)
+-------------------
+Fix: discrete movement had interpolation when rendering and offsetting in the Mod when bumping against walls.
+Fix: tabular_q_learning.py was using deprecated API.
+
+0.10.3 (2016-04-01)
+-------------------
+Change: replaced MissionSpec::useDiscreteActions() with allowContinuousMovementCommand() etc. to control allow- and deny-lists through the API.
+Fix: 64-bit build now supported on Windows.
+Fix: Human Action Component now supports discrete actions again.
+Add: New visualization tool for heatmaps of agent movement.
+
+0.10.2 (2016-03-22)
+-------------------
+Fix: ffmpeg now a runtime dependency instead of an installation requirement.
+Fix: pitch and yaw speed now render-speed independent.
+
+0.10.1 (2016-03-03)
+-------------------
+Add: Tutorial pdf and scripts
+Fix: DefaultWorldGenerator wasn't generating if a flatworld was already running.
+Fix: ObservationFromGrid was never returning observations.
+Fix: Hotbar keys were broken for both agent and human.
+Fix: Initial yaw and pitch were being stomped on by ContinuousCommandHandler.
+Fix: The order of draw objects in the DrawingDecorator is now preserved.
+Fix: Command handler modifiers now called "allow-list" and "deny-list".
+Add: AI/Human toggle now bound to enter key and state is displayed in info text.
+Fix: Mouse can no longer move the AI in the gap between missions.
+Fix: AI/Human toggling of control fixed (no longer need to press toggle key twice).
+Fix: Empty JSON observations filtered out.
+Add: Tutorial in Python_Examples.
+
+0.10.0 (2016-02-26)
+------------------
+Add: WorldDecorators can now throw to cleanly abort missions.
+Fix: Mod error message lists weren't getting reset between missions.
+Add: New python example for DefaultWorldGenerator, timestamps etc.
+Fix: MissionSpec::useDiscreteActions() was broken.
+Fix: Timestamps weren't accessible in Python and Lua.
+Fix: Player now no longer remains on fire from the end of a previous mission.
+Fix: Player placement yaw and pitch were being ignored.
+Add: New python example for tabular Q learning.
+Add: ClassroomDecorator, providing random sampling from a parameterized mission space.
+
+0.9.9 (2016-02-12)
+------------------
+Fix: When running multiple missions, video/PNGs would only be saved in the first one.
+
+0.9.8 (2016-02-11)
+------------------
+Fix: Attempting to run without saving mission file (empty MissionRecordSpec) would cause crash.
+Fix: Torch support was missing.
+Add: Debian 7 support now available.
+
+0.9.7 (2016-02-09)
+------------------
+Fix: Reuses TCP connections to avoid leaving too many ports in TIME_WAIT.
+
+0.9.6 (2016-02-05)
+------------------
+Fix: getTorchTensorFromPixels now takes an allocated tensor, avoids memory leak.
+
+0.9.5 (2016-01-28)
+------------------
+Fix: Final reward now sent in MissionEnded message to guarantee arrival.
+
+0.9.4 (2016-01-27)
+------------------
+Add: RewardProducer for mission end.
+Add: XSD documentation in Schemas folder.
+
+0.9.3 (2016-01-20)
+------------------
+Add: Discrete movement handlers.
+
+0.9.1 (2016-01-07)
+------------------
+Add: Improved installation instructions.
+
+0.9.0 (2016-01-05)
+------------------
+Change: Rewrite of platform API to be cross-platform, multi-language and easier to use.
+Change: Large XML changes.
+Change: Removed ExperimentLauncher and ExperimentStudio.
+
+0.8 (2015-11-20)
+----------------
+Fix: Exceptions now passed on to Python agents - user should catch.
+Change: Malmo.StartListeningForMissionControlMessages() now doesn't take the port parameter.
+Change: Malmo.SendMissionEnded() now doesn't take the port parameter.
+Add: New ObservationsProducer: ObservationFromRecentCommands.
+Add: Can specify game mode in WorldFromBaseMapFile.
+Add: Can now specify a motor scaling for turning.
+Add: New VideoProducer: RGBDVideoGenerator gives RGB and depth.
+
+0.7 (2015-09-11)
+----------------
+Change: StartTime node in XML has changes.
+Change: Discrete.WorldFromGrid mission handler has been removed.
+Change: Malmo.saveUri is no longer available.
+Change: Malmo.logVideoEnabled is no longer available.
+Add: Malmo.StartListeningForVideo() now takes an optional parameter, to request raw image buffer instead of PIL image.
+Add: Communication between Python and Lua/Torch is now supported.
+Add: Communication between C# and Lua/Torch is now supported.
+Add: Malmo.SendMissionInitString() now validates the MissionInit string before sending, for easier debugging.
+Add: Malmo.GetMissionInitString() now allows the video size and save location to be specified.
+
+0.6 (2015-08-26)
+----------------
+Change: No longer saves mission file by default - call Malmo.SaveSession manually in OnMissionEndedMessage().
+Python agents no longer require bat files to launch from the launcher/experiment studio, and can train.
+Fix: timeout issue when launching missions from python ("no agent available" error)
+Fix: Sample Python agents were giving an error saying no module named malmo.
+Mod's observations now report agent's position using floats rather than ints.
+Mod shouldn't grab mouse pointer anymore (mostly).
+Fix: yaw and pitch should be set to sensible defaults at the start of each mission (fix weird camera angle error)
+Fix: XML block drawing no longer requires co-ords to be specified in low->high order.
+Additions to Mission XML: (full documentation of these is pending)
+  Inventory - can control exactly what blocks/items appear in which slots of player's inventory at start of each mission
+  Weather - can specify rain/thunder/clear weather for initial mission conditions
+  StartTime - can specify the Minecraft world time at the start of the Mission (will stop repeated runs of missions entering the night time)
+  AllowSpawning - can switch mob spawning on/off
+  Initial pitch and yaw can be specified.
+
+0.5 (2015-08-17)
+----------------
+Python agents can be run in the cloud
+HumanInstanceDownload - command line program to download human instance recordings
+DatasetCreation - create datasets from human instance data
+New missionhandler for teleport commands: CommandForAbsoluteMovement
+
+0.4.1 (2015-08-11)
+------------------
+Mod now quits the mission and returns to dormant state when it detects that its TCP video or reward signals are not being received by anything.
+New commands added to the Discrete.CommandForGridWalking handler.
+New whitelisting/blacklisting of individual commands in the command handlers
+
+0.3.1 (2015-07-27)
+------------------
+Change: In Python agents, the OnVideo callback now takes a PIL (Python Imaging Library) Image, instead of a raw buffer of bytes. See the sample scripts for usage hints.
+Change: Needs 'requests': pip install requests
+Change: You need an Experiment Studio human account created in order to log into Human Action.
+Change: OutputUri is now required in MissionInit nodes
+Add: Parameterisation added to the grid observation producer (the one that produces the hull of blocks around the player).
+Add: Parameterisation added to the discrete world builder (produces a flat maze-like grid of stained glass over lava).
+New MissionHandlers available (see the md files for details):
+  WorldBuilder: "WorldFromDefaultGame" - basically loads a default world.
+  ObservationProducers: "ObservationFromHotBar" and "ObservationFromFullInventory"
+  CommandHandler: "CommandForInventoryToHotBar" - allows basic manipulation of inventory.
+Fixes to Discrete MissionHandlers: Discrete.RewardForGridWalking should now give a negative reward for attempting to move, even if the move was unsuccessful (eg the agent tried to walk into a wall).
+Stabilisation - hopefully the Mod can now cope with thousands of missions without crashing, hanging, or otherwise doing weird things.
+
+0.2 (2015-07-15)
+----------------
+Change: XML files in new version cannot be used in old versions of the software.
+Change: For loading a base map, WorldFromBaseMapFile must be one of the WorldBuilder mission handlers. See notes below.
+Add: Mod now crashes far less often.
+Add: New world builders mean that there is no need to manually enter a world when launching minecraft.
+Add: Python agents now save out Malmo files with the session contents. Frames are timestamped png files.
+Add: XML files now include a SchemaVersion attribute, to help with future changes.
+
+0.1.1 (2015-07-07)
+------------------
+Change: Mission handlers now separate XML nodes, with ClassName attribute. See samples in ExperimentDefinitions.
+Change: MalmoStartListeningForMissionControlMessages now takes 3 parameters. See samples in NonPsiAgents.
+Change: Python scripts now require PyXB. See Tutorials.
+Add: Support for discrete action experiments. The D-Pad on the XBox controller can be used to navigate through the provided cliffWalkingTask.xml mission for example.
+Add: Lots of bugfixes. The Mod now crashes less often.

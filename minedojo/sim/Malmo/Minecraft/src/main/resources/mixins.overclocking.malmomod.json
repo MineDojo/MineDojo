@@ -1,0 +1,28 @@
+{
+  "required": true,
+  "package": "com.microsoft.Malmo.Mixins",
+  "mixins": [
+    "MixinEntityRandom",
+    "MixinMinecraftGameloop",
+    "MixinMinecraftServerRun",
+    "MixinNoGuiInteract",
+    "MixinRandomSkinTexture",
+    "MixinWorldProviderSpawn",
+    "MixinKeyboard",
+    "MixinMouse", 
+    "MixinDisplay",
+    "MixinSyncClientStats",
+    "MixinWorldProviderSpawn",
+    "MixinMergeStatsFix",
+    "MixinForgeHookStatsFix",
+    "MixinItemFood",
+    "MixinItemBucketMilk"
+  ],
+  "server": [],
+  "client": [
+    "MixinUpdateChunksNoTimeout"
+  ],
+  "compatibilityLevel": "JAVA_8",
+  "minVersion": "0.6.11",
+  "refmap": "mixins.malmo.refmap.json"
+}

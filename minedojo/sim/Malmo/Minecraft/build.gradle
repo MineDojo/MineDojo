@@ -1,0 +1,372 @@
+// For those who want the bleeding edge
+buildscript {
+    repositories {
+
+        maven { url 'https://jitpack.io' }
+        jcenter()
+        mavenCentral()
+        maven {
+            name = "forge"
+            url = "https://maven.minecraftforge.net/"
+        }
+        maven {
+            name = "sonatype"
+            url = "https://oss.sonatype.org/content/repositories/snapshots/"
+        }
+    }
+    dependencies {
+        classpath 'org.ow2.asm:asm:6.0'
+        classpath('com.github.SpongePowered:MixinGradle:dcfaf61'){ // 0.6
+            // Because forgegradle requires 6.0 (not -debug-all) while mixingradle depends on 5.0
+            // and putting mixin right here will place it before forge in the class loader
+            exclude group: 'org.ow2.asm', module: 'asm-debug-all'
+        }
+
+        classpath 'com.github.brandonhoughton:ForgeGradle:FG_2.2_patched-SNAPSHOT'
+    }
+    configurations {
+        compileClasspath {
+            resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+                if (details.requested.group == 'org.apache.logging.log4j') {
+                    details.useVersion '2.16.0'
+                    details.because 'zero-day-exploits on log4j <2.15.0'
+                }
+            }
+        }
+    }
+}
+
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '1.2.4'
+}
+
+dependencies {
+    implementation 'com.github.brandonhoughton:forgegradle:FG_2.2_patched-SNAPSHOT'
+}
+
+apply plugin: 'net.minecraftforge.gradle.forge'
+apply plugin: 'org.spongepowered.mixin'
+
+
+apply plugin: 'java'
+sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
+
+// Read the version number from the Mod's version properties file.
+if (!file('src/main/resources/version.properties').exists()) {
+    ant.fail("version.properties file is missing - this is created automatically by CMake. If you are building from source, make sure you have built the full source tree, not just the Minecraft folder.")
+}
+def propFile = file('src/main/resources/version.properties')
+def versionProp = new Properties()
+versionProp.load(propFile.newReader())
+version = versionProp['malmomod.version']
+
+group= "com.microsoft.MalmoMod" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = "MalmoMod"
+
+
+
+minecraft {
+    version = "1.11.2-13.20.1.2588"
+    runDir = "run"
+
+    // the mappings can be changed at any time, and must be in the following format.
+    // snapshot_YYYYMMDD   snapshot are built nightly.
+    // stable_#            stables are built at the discretion of the MCP team.
+    // Use non-default mappings at your own risk. they may not allways work.
+    // simply re-run your setup task after changing the mappings to update your workspace.
+    mappings = "snapshot_20161220"
+    makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
+}
+
+
+runClient {
+    if (project.hasProperty("runDir")) {
+        minecraft.runDir = project.getProperty("runDir")
+    }
+}
+
+repositories {
+    maven {
+        name = "SpongePowered Repo"
+        url = "https://repo.spongepowered.org/maven/"
+    }
+    maven { url 'https://jitpack.io' }
+}
+
+// Add the overclocking plugin to the manifest so that it is loaded when running in a non-dev environment (eg from the launcher)
+jar {
+
+    manifest {
+        attributes 'TweakClass': 'org.spongepowered.asm.launch.MixinTweaker',
+                'TweakOrder': '0',
+                'FMLCorePluginContainsFMLMod': 'true',
+                'FMLCorePlugin': 'com.microsoft.Malmo.OverclockingPlugin',
+                'FMLAT': 'malmomod_at.cfg'
+    }
+    manifest {
+        attributes  'FMLCorePlugin': 'com.microsoft.Malmo.OverclockingPlugin',
+                    'FMLCorePluginContainsFMLMod': 'true'
+    }
+}
+
+// And add to the jvm args so that it is also loaded when running using gradle runClient:
+JavaExec exec = project.getTasks().getByName("runClient") as JavaExec
+
+exec.jvmArgs(["-Dfml.coreMods.load=com.microsoft.Malmo.OverclockingPlugin","-Xmx2G", "-Xdebug", "-Dmixin.debug=true"])
+exec.args(["--tweakClass", "com.microsoft.Malmo.Launcher.tweakers.CoremodTweaker"])
+// exec.jvmArgs(["-Dfml.coreMods.load=com.microsoft.Malmo.OverclockingPlugin","-Xmx2G"])
+
+// If we have a jvm_debug_port defined and valid (>0), then set it for JDWP debugging.
+if (project.hasProperty("jvm_debug_port")) {
+    def jvm_debug_port = project.getProperty("jvm_debug_port").toInteger()
+    if (jvm_debug_port > 0) {
+        def config_str = "-Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=${jvm_debug_port}"
+        exec.jvmArgs([config_str])
+        println "JDWP configured at port '${jvm_debug_port}'"
+    }
+}
+
+// ForgeGradle automatically sets the runClient task's outputs to be the runDir above (eg "run"). This
+// means that gradle will helpfully try to take a snapshot of the complete contents of the run folder in order
+// to carry out up-to-date checks for any tasks that depend on runClient.
+// The run folder also contains the logs folder, which, on Windows at least, can contain locked
+// TCP log files, which gradle won't be able to checksum, meaning that the runClient task will fail
+// if there is already a Minecraft running and logging.
+
+// To fix this issue, uncomment the following to set the outputs to a dummy value:
+// exec.getOutputs().files.setFrom(file("dummy_value"))
+
+// We also force the up-to-date check to return false, since the user will ALWAYS want runClient to run.
+exec.getOutputs().upToDateWhen( { return false } )
+
+dependencies {
+    compile 'org.spongepowered:mixin:0.7.5-SNAPSHOT'
+    compile 'org.jetbrains:annotations:16.0.2'
+}
+
+processResources
+{
+    // this will ensure that this task is redone when the versions change.
+    inputs.property "version", project.version
+    inputs.property "mcversion", project.minecraft.version
+
+    // replace stuff in mcmod.info, nothing else
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
+
+        // replace version and mcversion
+        expand 'version':project.version, 'mcversion':project.minecraft.version
+    }
+
+    // copy everything else, thats not the mcmod.info
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info'
+    }
+}
+
+if (JavaVersion.current().isJava8Compatible())
+{
+    allprojects
+    {
+        tasks.withType(Javadoc)
+        {
+            options.addStringOption('Xdoclint:none', '-quiet')
+        }
+    }
+}
+
+// Mixin stuff.
+
+sourceSets {
+    main {
+        ext.refMap = "mixins.malmomod.refmap.json"
+    }
+}
+
+
+
+task copySrg(type: Copy, dependsOn: 'genSrgs') {
+    from {project.tasks.genSrgs.mcpToSrg}
+    into 'build'
+}
+
+setupDecompWorkspace.dependsOn copySrg
+setupDevWorkspace.dependsOn copySrg
+project.tasks.idea.dependsOn copySrg
+
+
+// Mixin uses multiple HashMaps to generate the refmap.
+// HashMaps are unordered collections and as such do not produce deterministic output.
+// To fix that, we simply sort the refmap json file.
+import groovy.json.JsonSlurper
+import groovy.json.JsonOutput
+compileJava.doLast {
+    File refmapFile =  compileJava.ext.refMapFile
+    if (refmapFile.exists()) {
+        def ordered
+        ordered = {
+            if (it instanceof Map) {
+                def sorted = new TreeMap(it)
+                sorted.replaceAll { k, v -> ordered(v) }
+                sorted
+            } else if (it instanceof List) {
+                it.replaceAll { v -> ordered(v) }
+            } else {
+                it
+            }
+        }
+        def json = JsonOutput.toJson(ordered(new JsonSlurper().parse(refmapFile)))
+        refmapFile.withWriter { it.write json }
+    }
+}
+
+
+import java.util.zip.ZipEntry
+import java.util.zip.ZipFile
+import java.util.zip.ZipOutputStream
+
+import org.objectweb.asm.*
+
+import static org.objectweb.asm.Opcodes.ASM5
+
+// MC binaries were complied with a java version that produces invalid class files under certain circumstances
+// This causes setupCIWorkspace to be insufficient for compiling.
+// Related JDK bug: https://bugs.openjdk.java.net/browse/JDK-8066725
+// As a workaround, to use setupCIWorkspace on Drone, we modify the bin jar in-place and remove all parameter annotations.
+// WARNING: This piece of code ignores any and all gradle conventions and will probably fail horribly when run outside
+// of a single-use environment (e.g. Drone). Use setupDecompWorkspace for normal use.
+def annotationWorkaround = {
+    println "Applying RuntimeInvisibleParameterAnnotations workaround..."
+    File jar = getOutJar()
+    File tmp = new File((File) getTemporaryDir(), "workaround.jar")
+    tmp.withOutputStream {
+        new ZipOutputStream(it).withStream { dst ->
+            new ZipFile(jar).withCloseable { src ->
+                src.entries().each {
+                    if (it.name.startsWith("net/minecraft/") && it.name.endsWith(".class")) {
+                        def cw = new ClassWriter(0)
+                        def cv = new ClassVisitor(ASM5, cw) {
+                            @Override
+                            MethodVisitor visitMethod(int access, String name, String desc, String signature, String[] exceptions) {
+                                return new MethodVisitor(ASM5, cv.visitMethod(access, name, desc, signature, exceptions)) {
+                                    @Override
+                                    AnnotationVisitor visitParameterAnnotation(int parameter, String pdesc, boolean visible) {
+                                        return null // Strip all parameter annotations
+                                    }
+                                }
+                            }
+                        }
+                        new ClassReader(src.getInputStream(it)).accept(cv, 0)
+                        dst.putNextEntry(new ZipEntry(it.name))
+                        dst.write(cw.toByteArray())
+                    } else {
+                        dst.putNextEntry(it)
+                        dst.write(src.getInputStream(it).bytes)
+                    }
+                }
+            }
+        }
+    }
+    jar.delete()
+    tmp.renameTo(jar)
+}
+
+tasks.deobfMcMCP.doLast annotationWorkaround
+
+
+
+// -------------- Task 'jaxb' runs xjc to make java files from XSD files --------------------
+
+gradle.projectsEvaluated {
+    // compileJava target isn't available until after forge has initialized things
+    compileJava.dependsOn copySrg
+    compileJava.dependsOn jaxb
+    compileJava.dependsOn copyModToClient
+    compileJava.dependsOn copyModToServer
+    jaxb.dependsOn copySchemas
+    copySchemas.dependsOn deleteSchemas
+}
+
+configurations {
+    jaxb
+}
+
+dependencies {
+    jaxb group: 'com.sun.xml.bind', name: 'jaxb-xjc', version: '2.2.4-1'
+}
+
+task copySchemas(type: Copy) {
+    from '../Schemas/'
+    into 'src/main/resources/'
+    include ('*.xsd')
+}
+
+task jaxb() {
+    description 'Generate source files for our XML schemas using JAXB'
+
+    // Create an index file listing all the schemas:
+    def schemaIndexFile = new File('src/main/resources/schemas.index')
+    def contents = ""
+    def tree = copySchemas.source
+    tree.visit { fileDetails ->
+        contents += "${fileDetails.relativePath}" + "\n"
+    }
+    schemaIndexFile.write contents
+
+    inputs.files fileTree( dir: 'src/main/resources', include:'*.xsd' )
+    outputs.dir 'src/main/java/com/microsoft/Malmo/Schemas'
+
+    doLast {
+        // first clear the old .java files out of the folder in case some are no longer current
+        delete fileTree(dir: 'src/main/java/com/microsoft/Malmo/Schemas', include: '*.java')
+
+        // use xjc to generate java files from the XML schema
+        ant.taskdef(name: 'xjc', classname: 'com.sun.tools.xjc.XJCTask', classpath: configurations.jaxb.asPath)
+        ant.xjc( destdir: 'src/main/java', package: 'com.microsoft.Malmo.Schemas' )
+        {
+            schema( dir: 'src/main/resources', includes: '*.xsd' )
+        }
+    }
+}
+
+task deleteSchemas() {
+    doLast {
+        // first clear the old .xsd files out of the folder in case some are no longer current
+        delete fileTree(dir: 'src/main/resources', include: '*.xsd')
+    }
+}
+
+// -------------- Task 'copyMds' copied the .md files into the javadoc folder --------------------
+
+task copyMds(type: Copy) {
+    from 'src/main/java/'
+    into 'build/docs/javadoc'
+    include ('**/*.md')
+}
+
+// -------------- Task 'copyMod' copies the Mod file into the Minecraft client and server mods folders --------------------
+
+task copyModToClient(type: Copy) {
+    from 'build/libs/'
+    into '../Minecraft/.minecraft/mods'
+    include ('*.jar')
+}
+
+task copyModToServer(type: Copy) {
+    from 'build/libs/'
+    into '../Minecraft/.minecraftserver/mods'
+    include ('*.jar')
+}
+
+// Interesting. We've packaged forge gradle into the full jar and use gradle inherently??
+shadowJar {
+    classifier = 'fat'
+    configurations = [project.configurations.all.findAll {it.canBeResolved}] as List<Configuration>
+
+    manifest {
+        attributes "Main-Class": "com.microsoft.Malmo.Launcher.GradleStart"
+    }
+}
+
+javadoc.dependsOn copyMds

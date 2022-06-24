@@ -1,0 +1,17 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="interactive.py" type="ShConfigurationType">
+    <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
+    <option name="SCRIPT_PATH" value="$PROJECT_DIR$/../../../../openai/multi-agent/minecraft/minecraft/interactive.py" />
+    <option name="SCRIPT_OPTIONS" value="--num-agents 1" />
+    <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
+    <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$/../../../../openai/multi-agent/minecraft/minecraft/" />
+    <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
+    <option name="INTERPRETER_PATH" value="$USER_HOME$/opt/miniconda3/envs/foundation/bin/python" />
+    <option name="INTERPRETER_OPTIONS" value="" />
+    <option name="EXECUTE_IN_TERMINAL" value="false" />
+    <envs>
+      <env name="JDWP_ENABLED" value="1" />
+    </envs>
+    <method v="2" />
+  </configuration>
+</component>

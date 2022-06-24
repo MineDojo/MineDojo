@@ -1,0 +1,12 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = git@github.com:cmu-rl/Malmo
+	branch = minerl
+	commit = 8d81e2b309841deac9bedcafe75157844874f6ec
+	parent = 39d109600bd11089b9fbef90ec01ab920b828958
+	method = merge
+	cmdver = 0.4.0
