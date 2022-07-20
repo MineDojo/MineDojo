@@ -477,7 +477,7 @@ def _parse_inventory_dict(inv_dict: dict[str, dict]) -> list[InventoryItem]:
 
 def _specific_task_make(task_id: str, *args, **kwargs):
     assert task_id in ALL_TASKS_SPECS, f"Invalid task id provided {task_id}"
-    task_specs = ALL_TASKS_SPECS[task_id]
+    task_specs = ALL_TASKS_SPECS[task_id].copy()
 
     # handle list of inventory items
     if "initial_inventory" in task_specs:
