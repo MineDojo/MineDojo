@@ -49,6 +49,8 @@ import java.util.*;
 
 import static com.microsoft.Malmo.MissionHandlers.ObservationFromRayImplementation.findEntity;
 
+import com.microsoft.Malmo.Access.IMixinMixinVec3drotatePitchLidar;
+
 /**
  * Helper class for building the "World data" to be passed from Minecraft back to the agent.<br>
  * This class contains helper methods to build up a JSON tree of useful information, such as health, XP, food levels, distance travelled, etc.etc.<br>
@@ -409,8 +411,8 @@ public class JSONWorldDataHelper
     public static List<Tuple<RayOffset, Vec3d>> getDirectedRays(List<RayOffset> rays, Vec3d playerLookVec) {
         List<Tuple<RayOffset, Vec3d>> directedRays = new ArrayList<>();
         for (RayOffset ray : rays) {
-            directedRays.add(new Tuple<>(ray, playerLookVec
-                    .rotatePitch(ray.getPitch())
+            directedRays.add(new Tuple<>(ray, ((IMixinMixinVec3drotatePitchLidar) (Object) playerLookVec)
+                    .rotatePitchLidar(ray.getPitch())
                     .rotateYaw(ray.getYaw())
                     .scale(ray.getDistance())));
         }
