@@ -142,7 +142,7 @@ Here we show a few examples from each category:
 
 ## Creative Tasks
 
-Similar to Programmatic tasks, Creative tasks can be instantiated by `minedojo.make()`. The only difference is that `task_id` no longer has any semantic meaning. Instead, the format becomse `creative:{task_index}`. You can query all Creative task IDs from `minedojo.tasks.ALL_CREATIVE_TASK_IDS`.
+Similar to Programmatic tasks, Creative tasks can be instantiated by `minedojo.make()`. The only difference is that `task_id` no longer has any semantic meaning. Instead, the format becomes `creative:{task_index}`. You can query all Creative task IDs from `minedojo.tasks.ALL_CREATIVE_TASK_IDS`.
 
 The following code instantiates the 256th task from our Creative suite:
 ```python
