@@ -176,7 +176,7 @@ class Playthrough(MetaTaskBase):
         ), "Cannot call env.step() before calling reset()"
         observation, reward, done, info = self.env.step(action)
         self._elapsed_steps += 1
-        if self._elapsed_steps >= self._max_episode_steps:
+        if self._elapsed_steps >= self.time_limit:
             info["TimeLimit.truncated"] = not done
             done = True
         return observation, reward, done, info
