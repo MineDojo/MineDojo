@@ -8,6 +8,7 @@
 [[PDF]](https://arxiv.org/pdf/2206.08853.pdf)
 [[Docs]](https://docs.minedojo.org)
 [[Open Database]](https://minedojo.org/knowledge_base)
+[[MineCLIP]](https://github.com/MineDojo/MineCLIP)
 [[Team]](https://minedojo.org/index.html#team)
 
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/MineDojo)](https://pypi.org/project/MineDojo/)
@@ -23,6 +24,8 @@ ______________________________________________________________________
 MineDojo features a **massive simulation suite** built on Minecraft with 1000s of diverse tasks, and provides **open access to an internet-scale knowledge base** of 730K YouTube videos, 7K Wiki pages, 340K Reddit posts. 
 
 Using MineDojo, AI agents can freely explore a procedurally generated 3D world with diverse terrains to roam :earth_asia:	, materials to mine :gem:, tools to craft :wrench:, structures to build :european_castle:, and wonders to discover :sparkles:. Instead of training in isolation, your agent will be able to learn from the collective wisdom of millions of human players around the world! 
+
+**NEWS**: MineCLIP reward model and agent code are [released](https://github.com/MineDojo/MineCLIP)! 
 
 
 - [Installation](#Installation)
@@ -89,6 +92,8 @@ env.close()
 Please refer to [this tutorial](https://docs.minedojo.org/sections/getting_started/sim.html) for a detailed walkthrough of your first agent. MineDojo features a multimodal observation space (RGB, compass, voxels, etc.) and a compound action space (movement, camera, attack, craft, etc.). See [this doc](http://docs.minedojo.org/sections/getting_started/sim.html#basic-observation-and-action-spaces) to learn more. We recommend you to reference the full [observation](http://docs.minedojo.org/sections/core_api/obs_space.html) and [action space](http://docs.minedojo.org/sections/core_api/action_space.html) specifications.
 
 MineDojo can be extensively customized to be tailored to your research needs. Please check out customization guides on [tasks](https://docs.minedojo.org/sections/customization/task.html), [simulation](https://docs.minedojo.org/sections/customization/sim.html), and [privileged observation](https://docs.minedojo.org/sections/customization/privileged_obs.html).
+
+MineCLIP reward model and agent code are [open-sourced](https://github.com/MineDojo/MineCLIP). Please refer to the [paper](https://arxiv.org/abs/2206.08853) for more algorithmic details.
 
 
 # Benchmarking Suite
