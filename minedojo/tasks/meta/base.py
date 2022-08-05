@@ -179,7 +179,7 @@ class MetaTaskBase(gym.Wrapper):
     def _determine_success_hook(
         self, ini_info: Dict[str, Any], cur_info: Dict[str, Any], elapsed_timesteps: int
     ) -> bool:
-        return all(
+        return any(
             [
                 check_success(
                     ini_info_dict=ini_info,
