@@ -25,7 +25,10 @@ MineDojo features a **massive simulation suite** built on Minecraft with 1000s o
 
 Using MineDojo, AI agents can freely explore a procedurally generated 3D world with diverse terrains to roam :earth_asia:	, materials to mine :gem:, tools to craft :wrench:, structures to build :european_castle:, and wonders to discover :sparkles:. Instead of training in isolation, your agent will be able to learn from the collective wisdom of millions of human players around the world! 
 
-**NEWS**: MineCLIP reward model and agent code are [released](https://github.com/MineDojo/MineCLIP)! 
+**NEWS**: 
+
+* MineCLIP reward model and agent code are [released](https://github.com/MineDojo/MineCLIP)! 
+* We have open-sourced the [creative task labeling UI](https://github.com/MineDojo/TaskCreationUI), so researchers can curate more tasks from YouTube themselves. This tool can also be used beyond Minecraft for other agent domains.
 
 
 - [Installation](#Installation)
