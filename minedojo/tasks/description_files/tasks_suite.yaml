@@ -1,0 +1,71 @@
+programmatic_tasks:
+  standard:
+    - harvest_milk_with_empty_bucket_and_cow                            # harvest
+    - harvest_wool_with_shears_and_sheep                                # harvest
+    - harvest_1_coal                                                    # harvest
+    - harvest_1_chicken                                                 # harvest
+    - harvest_1_reeds                                                   # harvest
+    - harvest_1_log                                                     # harvest
+    - harvest_1_crafting_table                                          # harvest
+    - harvest_1_wheat_seeds                                             # harvest
+    - survival_sword_food                                               # survival
+    - combat_cow_plains_diamond_armors_diamond_sword_shield             # combat
+    - combat_sheep_plains_diamond_armors_diamond_sword_shield           # combat
+    - combat_spider_plains_diamond_armors_diamond_sword_shield          # combat
+    - combat_zombie_plains_diamond_armors_diamond_sword_shield          # combat
+    - techtree_from_barehand_to_wooden_sword                            # techtree
+    - techtree_from_stone_to_iron_shovel                                # techtree
+    - techtree_from_gold_to_diamond_chestplate                          # techtree
+  difficult:
+    - harvest_1_bookshelf                                               # harvest
+    - harvest_1_diamond                                                 # harvest
+    - harvest_1_redstone                                                # harvest
+    - harvest_1_glass_bottle                                            # harvest
+    - harvest_1_bed                                                     # harvest
+    - harvest_1_netherrack                                              # harvest
+    - harvest_1_elytra                                                  # harvest
+    - harvest_1_slime_ball                                              # harvest
+    - survival                                                          # survival
+    - combat_zombie_pigman_nether_diamond_armors_diamond_sword_shield   # combat
+    - combat_enderman_end_diamond_armors_diamond_sword_shield           # combat
+    - combat_wither_skeleton_nether_diamond_armors_diamond_sword_shield # combat
+    - combat_blaze_nether_diamond_armors_diamond_sword_shield           # combat
+    - techtree_from_barehand_to_golden_pickaxe                          # techtree
+    - techtree_from_barehand_to_diamond_sword                           # techtree
+    - techtree_from_wood_to_diamond_boots                               # techtree
+
+creative_tasks:
+  standard:
+    - creative:2    # Explore the world to find ocean
+    - creative:12   # Explore the world to find nether
+    - creative:13   # Explore the world to find village
+    - creative:92   # Build a swimming pool
+    - creative:101  # Build a bridge over a lake
+    - creative:172  # Race by riding pig
+    - creative:183  # Tame a wolf
+    - creative:287  # Make a waterfall out of lava
+    - creative:332  # Plant a tree in a pot
+    - creative:398  # Climb a waterfall by using blocks to climb up
+    - creative:403  # Light up a temple
+    - creative:427  # Sail a boat across the water
+    - creative:451  # Build a small fence around the tree
+    - creative:1555 # Launch fireworks at night
+    - creative:1558 # Dig a hole in the ground
+    - creative:1559 # Put carpets on the floor
+  difficult:
+    - creative:154  # Build a minecart and travel in the minecart
+    - creative:212  # Trap a creeper in a wooden cage so it can't explode
+    - creative:253  # Create a garden with a pond and a waterfall
+    - creative:283  # Gather a flock of chickens and lead them into a Nether Portal
+    - creative:292  # Design and construct a roller coaster that winds its way through an entire city
+    - creative:294  # Find a natural cave and turn it into your home
+    - creative:295  # Create a fully functioning farm of any crops
+    - creative:322  # Build an arena for Skeleton and Zombie fight
+    - creative:337  # Build a house out of different materials
+    - creative:341  # Design a mall with stores and a food court
+    - creative:355  # Build a water elevator
+    - creative:365  # Build a diamond castle in the mountains and live like a king or queen
+    - creative:366  # Build a cow farm near a swamp and have the cows produce milk for you
+    - creative:372  # Build a wooden temple under a river and have the temple be submerged in water.
+    - creative:440  # Make a modern aquarium with glass rooms containing fish
+    - creative:461  # Build a Christmas tree
