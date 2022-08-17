@@ -1,3 +1,147 @@
+combat_enderman_end_leather_armors_wooden_sword_shield:
+  category: combat
+  guidance: '1. Find an enderman in the game. They are tall, dark, and have long arms
+    that end in three sharp claws.
+
+    2. Attack the enderman with your weapon of choice. Swords work well, as do bows
+    and arrows.
+
+    3. The enderman will teleport away from you when you hit it, so be prepared to
+    chase it down.
+
+    4. When you finally catch up to the enderman, keep attacking it until it dies.'
+  prompt: combat a enderman in the end with a wooden sword, shield, and a full suite
+    of leather armors
+
+
+combat_enderman_end_iron_armors_wooden_sword_shield:
+  category: combat
+  guidance: '1. Find an enderman in the game. They are tall, dark, and have long arms
+    that end in three sharp claws.
+
+    2. Attack the enderman with your weapon of choice. Swords work well, as do bows
+    and arrows.
+
+    3. The enderman will teleport away from you when you hit it, so be prepared to
+    chase it down.
+
+    4. When you finally catch up to the enderman, keep attacking it until it dies.'
+  prompt: combat a enderman in the end with a wooden sword, shield, and a full suite
+    of iron armors
+
+
+combat_enderman_end_diamond_armors_wooden_sword_shield:
+  category: combat
+  guidance: '1. Find an enderman in the game. They are tall, dark, and have long arms
+    that end in three sharp claws.
+
+    2. Attack the enderman with your weapon of choice. Swords work well, as do bows
+    and arrows.
+
+    3. The enderman will teleport away from you when you hit it, so be prepared to
+    chase it down.
+
+    4. When you finally catch up to the enderman, keep attacking it until it dies.'
+  prompt: combat a enderman in the end with a wooden sword, shield, and a full suite
+    of diamond armors
+
+
+combat_enderman_end_leather_armors_iron_sword_shield:
+  category: combat
+  guidance: '1. Find an enderman in the game. They are tall, dark, and have long arms
+    that end in three sharp claws.
+
+    2. Attack the enderman with your weapon of choice. Swords work well, as do bows
+    and arrows.
+
+    3. The enderman will teleport away from you when you hit it, so be prepared to
+    chase it down.
+
+    4. When you finally catch up to the enderman, keep attacking it until it dies.'
+  prompt: combat a enderman in the end with a iron sword, shield, and a full suite
+    of leather armors
+
+
+combat_enderman_end_iron_armors_iron_sword_shield:
+  category: combat
+  guidance: '1. Find an enderman in the game. They are tall, dark, and have long arms
+    that end in three sharp claws.
+
+    2. Attack the enderman with your weapon of choice. Swords work well, as do bows
+    and arrows.
+
+    3. The enderman will teleport away from you when you hit it, so be prepared to
+    chase it down.
+
+    4. When you finally catch up to the enderman, keep attacking it until it dies.'
+  prompt: combat a enderman in the end with a iron sword, shield, and a full suite
+    of iron armors
+
+
+combat_enderman_end_diamond_armors_iron_sword_shield:
+  category: combat
+  guidance: '1. Find an enderman in the game. They are tall, dark, and have long arms
+    that end in three sharp claws.
+
+    2. Attack the enderman with your weapon of choice. Swords work well, as do bows
+    and arrows.
+
+    3. The enderman will teleport away from you when you hit it, so be prepared to
+    chase it down.
+
+    4. When you finally catch up to the enderman, keep attacking it until it dies.'
+  prompt: combat a enderman in the end with a iron sword, shield, and a full suite
+    of diamond armors
+
+
+combat_enderman_end_leather_armors_diamond_sword_shield:
+  category: combat
+  guidance: '1. Find an enderman in the game. They are tall, dark, and have long arms
+    that end in three sharp claws.
+
+    2. Attack the enderman with your weapon of choice. Swords work well, as do bows
+    and arrows.
+
+    3. The enderman will teleport away from you when you hit it, so be prepared to
+    chase it down.
+
+    4. When you finally catch up to the enderman, keep attacking it until it dies.'
+  prompt: combat a enderman in the end with a diamond sword, shield, and a full suite
+    of leather armors
+
+
+combat_enderman_end_iron_armors_diamond_sword_shield:
+  category: combat
+  guidance: '1. Find an enderman in the game. They are tall, dark, and have long arms
+    that end in three sharp claws.
+
+    2. Attack the enderman with your weapon of choice. Swords work well, as do bows
+    and arrows.
+
+    3. The enderman will teleport away from you when you hit it, so be prepared to
+    chase it down.
+
+    4. When you finally catch up to the enderman, keep attacking it until it dies.'
+  prompt: combat a enderman in the end with a diamond sword, shield, and a full suite
+    of iron armors
+
+
+combat_enderman_end_diamond_armors_diamond_sword_shield:
+  category: combat
+  guidance: '1. Find an enderman in the game. They are tall, dark, and have long arms
+    that end in three sharp claws.
+
+    2. Attack the enderman with your weapon of choice. Swords work well, as do bows
+    and arrows.
+
+    3. The enderman will teleport away from you when you hit it, so be prepared to
+    chase it down.
+
+    4. When you finally catch up to the enderman, keep attacking it until it dies.'
+  prompt: combat a enderman in the end with a diamond sword, shield, and a full suite
+    of diamond armors
+
+
 combat_shulker_end_leather_armors_wooden_sword_shield:
   category: combat
   guidance: '1. Find a shulker. They can be found in end cities, in the end, or in

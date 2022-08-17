@@ -2990,7 +2990,7 @@ creative:153:
 
 creative:154:
   collection: manual
-  guidance: '1. You''ll need a lot of minecarts - at least 100.
+  guidance: '1. You''ll need a lot of minecarts.
 
     2. You''ll need a track to put them on. You can either build one yourself, or
     find a pre-existing track.
@@ -3001,7 +3001,7 @@ creative:154:
 
     4. Finally, you''ll need to get the minecarts moving. You can do this by pushing
     them with your hand, or by using a lever or button.'
-  prompt: Travel over 1000 blocks by mine cart.
+  prompt: Build a minecart and travel in the minecart.
   source: null
 
 
@@ -5528,7 +5528,7 @@ creative:295:
 
     5. Harvest your crops. When your crops are ready, harvest them and enjoy the fruits
     of your labor!'
-  prompt: Create a fully functioning farm that produces all types of crops
+  prompt: Create a fully functioning farm of any crops
   source: null
 
 
@@ -8030,7 +8030,7 @@ creative:427:
 
     4. Use the WASD keys to move the boat around. Pressing space will make the boat
     go faster.'
-  prompt: sails the boat across the water
+  prompt: sail a boat across the water
   source: null
 
 
@@ -20408,4 +20408,18 @@ creative:1557:
   collection: manual
   guidance: null
   prompt: Collect all armors with different materials.
+  source: null
+
+
+creative:1558:
+  collection: manual
+  guidance: null
+  prompt: Dig a hole in the ground.
+  source: null
+
+
+creative:1559:
+  collection: manual
+  guidance: null
+  prompt: Put carpets on the floor.
   source: null
