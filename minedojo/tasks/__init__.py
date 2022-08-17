@@ -102,7 +102,7 @@ _ALL_VARS = {
         "witch",
         "enderman",
     ],
-    "end_mob": ["shulker", "endermite"],
+    "end_mob": ["shulker", "endermite", "enderman",],
     "nether_mob": [
         "blaze",
         "ghast",
