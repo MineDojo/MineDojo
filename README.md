@@ -27,6 +27,7 @@ Using MineDojo, AI agents can freely explore a procedurally generated 3D world w
 
 :partying_face: **NEWS**: 
 
+* MineDojo won the [Outstanding Paper award](https://blog.neurips.cc/2022/11/21/announcing-the-neurips-2022-awards/) at NeurIPS!
 * MineCLIP reward model and agent code are [released](https://github.com/MineDojo/MineCLIP)! 
 * We have open-sourced the [creative task labeling UI](https://github.com/MineDojo/TaskCreationUI), so researchers can curate more tasks from YouTube themselves. This tool can also be used beyond Minecraft for other agent domains.
 
