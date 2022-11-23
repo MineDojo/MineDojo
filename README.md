@@ -212,11 +212,12 @@ The Wiki pages cover almost every aspect of the game mechanics, and supply a ric
 Our paper is available on [Arxiv](https://arxiv.org/abs/2206.08853). If you find our code or databases useful, please consider citing us! 
 
 ```bibtex
-@article{fan2022minedojo,
-  title   = {MineDojo: Building Open-Ended Embodied Agents with Internet-Scale Knowledge},
-  author  = {Linxi Fan and Guanzhi Wang and Yunfan Jiang and Ajay Mandlekar and Yuncong Yang and Haoyi Zhu and Andrew Tang and De-An Huang and Yuke Zhu and Anima Anandkumar},
-  year    = {2022},
-  journal = {arXiv preprint arXiv: Arxiv-2206.08853}
+@inproceedings{fan2022minedojo,
+  title     = {MineDojo: Building Open-Ended Embodied Agents with Internet-Scale Knowledge},
+  author    = {Linxi Fan and Guanzhi Wang and Yunfan Jiang and Ajay Mandlekar and Yuncong Yang and Haoyi Zhu and Andrew Tang and De-An Huang and Yuke Zhu and Anima Anandkumar},
+  booktitle = {Thirty-sixth Conference on Neural Information Processing Systems Datasets and Benchmarks Track},
+  year      = {2022},
+  url       = {https://openreview.net/forum?id=rc8o_j8I8PX}
 }
 ```
 
