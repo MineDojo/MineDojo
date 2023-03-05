@@ -42,7 +42,7 @@ plugins {
 }
 
 dependencies {
-    implementation 'com.github.MineDojo:forgegradle:FG_2.2_patched-SNAPSHOT'
+    implementation 'com.github.MineDojo:ForgeGradle:FG_2.2_patched-SNAPSHOT'
 }
 
 apply plugin: 'net.minecraftforge.gradle.forge'
