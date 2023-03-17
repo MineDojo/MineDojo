@@ -306,7 +306,7 @@ task jaxb() {
     description 'Generate source files for our XML schemas using JAXB'
 
     // Create an index file listing all the schemas:
-    def schemaIndexFile = new File('src/main/resources/schemas.index')
+    def schemaIndexFile = new File("$projectDir/src/main/resources/schemas.index")
     def contents = ""
     def tree = copySchemas.source
     tree.visit { fileDetails ->
