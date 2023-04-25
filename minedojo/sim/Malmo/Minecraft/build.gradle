@@ -22,7 +22,7 @@ buildscript {
             exclude group: 'org.ow2.asm', module: 'asm-debug-all'
         }
 
-        classpath 'com.github.MineDojo:ForgeGradle:FG_2.2_patched-SNAPSHOT'
+        classpath 'com.github.yunfanjiang:ForgeGradle:FG_2.2_patched-SNAPSHOT'
     }
     configurations {
         compileClasspath {
@@ -42,7 +42,7 @@ plugins {
 }
 
 dependencies {
-    implementation 'com.github.MineDojo:ForgeGradle:FG_2.2_patched-SNAPSHOT'
+    implementation 'com.github.yunfanjiang:ForgeGradle:FG_2.2_patched-SNAPSHOT'
 }
 
 apply plugin: 'net.minecraftforge.gradle.forge'
