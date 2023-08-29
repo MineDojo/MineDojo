@@ -78,7 +78,7 @@ MINEDOJO_HEADLESS=1 python minedojo/scripts/validate_install.py
 
 # Getting Started
 
-MineDojo provides a [Gym-style](https://www.gymlibrary.ml/) interface for developing embodied agents that interact with the simulator in a loop.  Here is a very simple code snippet of a hardcoded agent that runs forward and jumps every 10 steps in the "Harvest Wool" task: 
+MineDojo provides a [Gym-style](https://www.gymlibrary.dev/) interface for developing embodied agents that interact with the simulator in a loop.  Here is a very simple code snippet of a hardcoded agent that runs forward and jumps every 10 steps in the "Harvest Wool" task: 
 
 ```python
 import minedojo
