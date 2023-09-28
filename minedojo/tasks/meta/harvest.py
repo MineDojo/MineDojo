@@ -109,7 +109,7 @@ class HarvestMeta(ExtraSpawnMetaTaskBase):
                 Default: ``None``.
 
         world_seed: The seed for generating a minecraft world if ``generate_world_type`` is ``"default"``.
-                See `here <https://minecraft.fandom.com/wiki/Seed_(level_generation)>`_ for more details.
+                See `here <https://minecraft.wiki/w/Seed_(level_generation)>`_ for more details.
                 Default: ``None``.
     """
 

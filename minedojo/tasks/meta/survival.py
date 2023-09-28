@@ -79,7 +79,7 @@ class SurvivalMeta(MetaTaskBase):
 
         world_seed: Seed for deterministic world generation
                 if ``generate_world_type`` is ``"default"`` or ``"specified_biome"``.
-                See `here <https://minecraft.fandom.com/wiki/Seed_(level_generation)>`_ for more details.
+                See `here <https://minecraft.wiki/w/Seed_(level_generation)>`_ for more details.
                 Default: ``None``.
     """
 

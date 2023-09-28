@@ -849,7 +849,7 @@ public class ServerStateMachine extends StateMachine
             attribute.removeModifier(modifier_id);
             double toAdd = maxHealth - attribute.getAttributeValue();
             // Note: the last argument being 0 means that this is an addition modifier.
-            // See https://minecraft.gamepedia.com/Attribute#Modifiers
+            // See https://minecraft.wiki/w/Attribute#Modifiers
             attribute.applyModifier(new AttributeModifier(modifier_id, "Set Max Health", toAdd, 0));
         }
 

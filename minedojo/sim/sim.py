@@ -91,7 +91,7 @@ class MineDojoSim(gym.Env):
 
         start_time: If not ``None``, specifies the time when the agent spawns.
                 If supplied, should be an int between 0 and 24000.
-                See `here <https://minecraft.fandom.com/wiki/Daylight_cycle>`_ for more information.
+                See `here <https://minecraft.wiki/w/Daylight_cycle>`_ for more information.
                 Default: ``None``.
 
         use_depth: If ``True``, includes depth map in observations.
@@ -113,7 +113,7 @@ class MineDojoSim(gym.Env):
 
         world_seed: Seed for deterministic world generation
                 if ``generate_world_type`` is ``"default"`` or ``"specified_biome"``.
-                See `here <https://minecraft.fandom.com/wiki/Seed_(level_generation)>`_ for more details.
+                See `here <https://minecraft.wiki/w/Seed_(level_generation)>`_ for more details.
                 Default: ``None``.
     """
 
