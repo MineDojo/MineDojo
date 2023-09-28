@@ -214,7 +214,7 @@
 
                         If left blank, the world will be a normal survival world.
 
-                        Biome ID #'s can be found here: https://minecraft.gamepedia.com/Biome#Biome_IDs
+                        Biome ID #'s can be found here: https://minecraft.wiki/w/Biome#Biome_IDs
                     </xs:documentation>
                 </xs:annotation>
             </xs:attribute>

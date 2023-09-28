@@ -18,7 +18,7 @@ class DefaultWorldGenerator(Handler):
 
     Args:
         force_reset (bool, optional): If the world should be reset every episode.. Defaults to True.
-        world_seed: https://minecraft.fandom.com/wiki/Seed_(level_generation)
+        world_seed: https://minecraft.wiki/w/Seed_(level_generation)
 
     Example usage:
 

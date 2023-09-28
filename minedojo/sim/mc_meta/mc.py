@@ -746,7 +746,7 @@ def strip_item_prefix(minecraft_name):
     return minecraft_name
 
 
-# Transcribed from: https://minecraft.gamepedia.com/index.php?title=Biome&oldid=1057817,
+# Transcribed from: https://minecraft.wiki/w/index.php?title=Biome&oldid=1057817,
 #   which has the biomes as they were during the minecraft version at the time: 1.11.2
 # _m indicates that the terrain is more mountainous
 # _f indicates that the terrain has trees where the base biome does not.
