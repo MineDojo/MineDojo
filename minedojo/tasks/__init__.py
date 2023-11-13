@@ -26,7 +26,8 @@ _logger.addHandler(_stream_handler)
 
 
 def _resource_file_path(fname) -> str:
-    with importlib_resources.path("minedojo.tasks.description_files", fname) as p:
+    with importlib_resources.as_file(
+        importlib_resources.files("minedojo.tasks.description_files") / fname) as p:
         return str(p)
 
 

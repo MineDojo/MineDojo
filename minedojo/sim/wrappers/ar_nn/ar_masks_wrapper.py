@@ -15,10 +15,10 @@ class ARMasksWrapper(gym.ObservationWrapper):
         env: Union[MineDojoSim, gym.Wrapper],
         action_categories_and_num_args: Optional[dict[str, int]] = None,
     ):
-        assert "inventory" in env.observation_space.keys()
-        assert "nearby_tools" in env.observation_space.keys()
-        assert "table" in env.observation_space["nearby_tools"].keys()
-        assert "furnace" in env.observation_space["nearby_tools"].keys()
+        assert "inventory" in list(env.observation_space.keys())
+        assert "nearby_tools" in list(env.observation_space.keys())
+        assert "table" in list(env.observation_space["nearby_tools"].keys())
+        assert "furnace" in list(env.observation_space["nearby_tools"].keys())
         assert isinstance(
             env.action_space, spaces.MultiDiscrete
         ), "please use this wrapper with `NNActionSpaceWrapper!`"

@@ -21,13 +21,14 @@ class NNActionSpaceWrapper(gym.Wrapper):
         discretized_camera_interval: Union[int, float] = 15,
         strict_check: bool = True,
     ):
+        action_space_keys = list(env.action_space.keys())
         assert (
-            "equip" in env.action_space.keys()
-            and "place" in env.action_space.keys()
-            and "swap_slot" not in env.action_space.keys()
+            "equip" in action_space_keys
+            and "place" in action_space_keys
+            and "swap_slot" not in action_space_keys
         ), "please use this wrapper with event_level_control = True"
         assert (
-            "inventory" in env.observation_space.keys()
+            "inventory" in list(env.observation_space.keys())
         ), f"missing inventory from obs space"
         super().__init__(env=env)
 

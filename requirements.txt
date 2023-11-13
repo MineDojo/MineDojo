@@ -1,6 +1,6 @@
 pyyaml
 jinja2
-gym==0.21.0
+gym==0.22.0
 lxml
 numpy
 coloredlogs
@@ -17,6 +17,6 @@ mypy-extensions
 jsonlines
 praw
 wget
-importlib_resources
+importlib_resources==6.1.1
 hydra-core
 Pillow

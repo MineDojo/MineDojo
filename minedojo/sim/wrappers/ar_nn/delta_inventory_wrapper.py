@@ -25,9 +25,9 @@ class DeltaInventoryWrapper(gym.Wrapper):
         n_decreased: int = 4,
         default_item_name: str = "air",
     ):
-        assert "inventory" in env.observation_space.keys()
-        assert "masks" in env.observation_space.keys()
-        assert "craft_smelt" in env.observation_space["masks"].keys()
+        assert "inventory" in list(env.observation_space.keys())
+        assert "masks" in list(env.observation_space.keys())
+        assert "craft_smelt" in list(env.observation_space["masks"].keys())
         assert isinstance(
             env.action_space, spaces.MultiDiscrete
         ), "please use this wrapper with `NNActionSpaceWrapper!`"
